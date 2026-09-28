@@ -64,6 +64,13 @@ const data = {
       ],
     },
     {
+      title: "Verification and release discipline",
+      paragraphs: [
+        "The platform is treated as an internal system with release checks rather than as a collection of scripts. Its current gate includes 110 automated tests, linting, strict type checks, migration validation, database integrity checks, and secret scanning.",
+        "Backups are integrity checked, destructive organization actions are auditable, and outbound delivery remains disabled so demonstrations cannot accidentally become real outreach. Those boundaries make the current capability easier to explain and safer to evaluate.",
+      ],
+    },
+    {
       title: "Shared role, additional website ownership",
       paragraphs: [
         "Ghayas and I share SSIK's co-founder, consulting, security-assessment, privacy-research, and stakeholder-communication responsibilities. In addition to that shared work, I independently own the public website's design, development, publishing, and hosting maintenance, and I built the private SSIK Intelligence V1 platform.",

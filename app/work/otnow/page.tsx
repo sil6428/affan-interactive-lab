@@ -40,6 +40,13 @@ const data = {
       ],
     },
     {
+      title: "Designed to feel native to Canvas",
+      paragraphs: [
+        "The interface uses Ontario Tech's Canvas palette, compact typography, thin dividers, and the same information density as the surrounding dashboard instead of presenting a separate card-heavy application. Course, type, and grouping controls stay visible above a deadline list that can be scanned quickly without leaving the current Canvas page.",
+        "The companion also exposes direct course-content shortcuts without trying to replace Canvas itself. This keeps the product focused on planning, change awareness, and navigation rather than duplicating the learning-management system.",
+      ],
+    },
+    {
       title: "Deadline changes and reminders",
       paragraphs: [
         "The extension reconciles new planner data with its last successful read. When Canvas moves a due date, OTNow preserves the earlier value, highlights the change for seven days, and can notify the student.",

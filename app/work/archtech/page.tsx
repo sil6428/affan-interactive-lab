@@ -11,7 +11,7 @@ const data = {
   title: "Archtech Nonprofit Technology Operations",
   label: "Nonprofit infrastructure · Active",
   summary:
-    "I set up Google Workspace for a developing nonprofit, coordinate the team building its website, and own the website hosting and deployment workflow.",
+    "I set up the collaboration foundation for a developing nonprofit, coordinate the contributors building its website, and own the hosting and deployment path that turns private team work into a stable release. The work combines account administration, access ownership, technical communication, release coordination, and hands-on implementation support.",
   facts: [
     ["Role", "Google Workspace and web hosting"],
     ["Status", "Active, private development"],
@@ -48,6 +48,17 @@ const data = {
         "Prepare and maintain the hosting environment",
         "Coordinate deployments with the website team",
         "Verify releases and troubleshoot hosting issues",
+      ],
+    },
+    {
+      title: "Operational continuity",
+      paragraphs: [
+        "I organize accounts and ownership so the nonprofit is not dependent on one person's personal login or an undocumented deployment step. Hosting changes, repository access, and release responsibilities are communicated to the team before launch work is treated as complete.",
+      ],
+      bullets: [
+        "Keep organizational access separate from personal accounts",
+        "Document who owns hosting, source, and deployment responsibilities",
+        "Verify public releases instead of assuming a successful build means the site is reachable",
       ],
     },
     {

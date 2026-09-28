@@ -98,7 +98,8 @@ test("renders the public secure-communications case studies", async () => {
   assert.match(transfer, /Secure File Transfer/);
   assert.match(transfer, /Private source/);
   assert.match(transfer, /13,632,512 bytes/);
-  assert.match(transfer, /14 automated tests/);
+  assert.match(transfer, /16 automated tests/);
+  assert.match(transfer, /Transfer Desk/);
   assert.doesNotMatch(transfer, /github\.com\/sil6428\/secure-file-transfer/);
 });
 
@@ -108,7 +109,8 @@ test("renders the measured integrity and OTNow case studies", async () => {
   const integrity = await integrityResponse.text();
   assert.match(integrity, /45 of 45 detected/);
   assert.match(integrity, /500 files/);
-  assert.match(integrity, /Seven passing/);
+  assert.match(integrity, /Nine passing/);
+  assert.match(integrity, /Integrity Desk/);
   assert.match(integrity, /github\.com\/sil6428\/file-integrity-monitor/);
 
   const otnowResponse = await render("/work/otnow");

@@ -44,6 +44,13 @@ const data = {
       ],
     },
     {
+      title: "Browser application layer",
+      paragraphs: [
+        "The browser workspace is not a mock screen placed over the command line. It uses the same identity, contact, message, replay, and history modules as the terminal workflow, then adds a session boundary for unlocking the local device and CSRF protection for state-changing requests.",
+        "Conversation state is separated by verified contact, while search, drafts, reply references, pinned, muted, and archived views make the prototype usable enough to exercise the security controls through normal messaging behavior rather than isolated function calls.",
+      ],
+    },
+    {
       title: "How we verify it",
       paragraphs: [
         "The current 75-test suite covers local setup and unlock, CSRF enforcement, conversation controls, identity protection, encryption, signatures, recipient validation, replay persistence, replies, acknowledgements, verified contacts, local history, attachment references, rate limiting, malformed inputs, and end-to-end local delivery.",
