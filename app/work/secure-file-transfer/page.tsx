@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const data = {
-  index: "04",
+  index: "06",
   title: "Secure File Transfer",
   label: "Security tooling · Private source · Completed prototype",
   summary:
@@ -58,6 +58,8 @@ const data = {
       ],
     },
   ],
+  nextSlug: "/work/archtech",
+  nextTitle: "Archtech Nonprofit Technology Operations",
 };
 
 export default function SecureFileTransferCaseStudy() {

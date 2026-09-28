@@ -4,7 +4,6 @@ This file summarizes meaningful public milestones. Detailed implementation notes
 
 ## 2026-09-01
 
-- Replaced the CICIDS2017 project in current career surfaces with the completed private Secure File Transfer project.
 - Added measured transfer, interruption-recovery, authentication, tamper-detection, and automated-test evidence without exposing private source links.
 - Added the Secure Messaging Platform to AFFAN_OS as an explicitly private work in progress with its current foundation and planned milestone sequence.
 - Refreshed both one-page resume variants while keeping the application phone number out of the public portfolio copy.

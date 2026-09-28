@@ -70,6 +70,8 @@ const data = {
       ],
     },
   ],
+  nextSlug: "/work/file-integrity-monitor",
+  nextTitle: "File Integrity Monitor",
 };
 
 export default function SsikCaseStudy() {

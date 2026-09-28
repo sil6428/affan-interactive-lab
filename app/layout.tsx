@@ -73,6 +73,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             "Cisco IOS",
             "Python",
             "TypeScript",
+            "Chrome extensions",
             "Cloudflare Pages",
             "IT consulting",
             "Website hosting",

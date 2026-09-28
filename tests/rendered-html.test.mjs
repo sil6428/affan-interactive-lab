@@ -102,6 +102,24 @@ test("renders the public secure-communications case studies", async () => {
   assert.doesNotMatch(transfer, /github\.com\/sil6428\/secure-file-transfer/);
 });
 
+test("renders the measured integrity and OTNow case studies", async () => {
+  const integrityResponse = await render("/work/file-integrity-monitor");
+  assert.equal(integrityResponse.status, 200);
+  const integrity = await integrityResponse.text();
+  assert.match(integrity, /45 of 45 detected/);
+  assert.match(integrity, /500 files/);
+  assert.match(integrity, /Seven passing/);
+  assert.match(integrity, /github\.com\/sil6428\/file-integrity-monitor/);
+
+  const otnowResponse = await render("/work/otnow");
+  assert.equal(otnowResponse.status, 200);
+  const otnow = await otnowResponse.text();
+  assert.match(otnow, /Two read-only Canvas endpoints/);
+  assert.match(otnow, /12 unit tests/);
+  assert.match(otnow, /does not claim a public store listing yet/i);
+  assert.match(otnow, /github\.com\/sil6428\/OTNow/);
+});
+
 test("publishes crawler and structured profile metadata", async () => {
   const response = await render();
   const html = await response.text();
@@ -117,6 +135,8 @@ test("publishes crawler and structured profile metadata", async () => {
   const sitemap = await sitemapResponse.text();
   assert.match(sitemap, /work\/archtech/);
   assert.match(sitemap, /work\/ssik/);
+  assert.match(sitemap, /work\/file-integrity-monitor/);
+  assert.match(sitemap, /work\/otnow/);
   assert.match(sitemap, /work\/p2p-messaging/);
   assert.match(sitemap, /work\/secure-file-transfer/);
 
@@ -589,6 +609,8 @@ test("includes the device-local soundtrack and hidden terminal", async () => {
   assert.match(desktopOs, /sil6428\.github\.io\/SSIK-website/);
   assert.match(desktopOs, /File Integrity Monitor\.py/);
   assert.match(desktopOs, /github\.com\/sil6428\/file-integrity-monitor/);
+  assert.match(desktopOs, /OTNow\.extension/);
+  assert.match(desktopOs, /github\.com\/sil6428\/OTNow/);
   assert.match(desktopOs, /Secure File Transfer\.py/);
   assert.match(desktopOs, /14 automated tests/);
   assert.match(desktopOs, /P2P Messaging\.wip/);
@@ -596,7 +618,6 @@ test("includes the device-local soundtrack and hidden terminal", async () => {
   assert.match(desktopOs, /75 automated tests/);
   assert.match(desktopOs, /github\.com\/sil6428\/P2P-messaging/);
   assert.match(desktopOs, /unaudited work in progress/);
-  assert.doesNotMatch(desktopOs, /CICIDS2017\.research/);
   assert.doesNotMatch(desktopOs, /github\.com\/sil6428\/secure-file-transfer/);
   assert.doesNotMatch(desktopOs, /github\.com\/sil6428\/secure-messaging-platform/);
   assert.match(desktopOs, /Event Planner\.js/);
@@ -637,8 +658,8 @@ test("includes the device-local soundtrack and hidden terminal", async () => {
   assert.match(learningLog, /Reviewed and hardened the collaborative P2P messaging update/);
   assert.match(learningLog, /learning-log-entry-2026-09-18/);
   assert.match(learningLog, /Aligned conference-facing portfolio, resume, and repositories/);
-  assert.match(learningLog, /learning-log-entry-2026-08-16/);
-  assert.match(learningLog, /Started a cybersecurity research reproduction project/);
+  assert.match(learningLog, /learning-log-entry-2026-09-28/);
+  assert.match(learningLog, /Reconciled my technical archive with my public portfolio/);
   assert.match(learningLog, /learning-log-entry-2026-07-27/);
   assert.match(learningLog, /Set up a genuine learning log/);
   assert.match(tryHackMe, /tryhackme-room-offensive-security-intro/);

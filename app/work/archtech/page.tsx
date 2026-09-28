@@ -57,6 +57,8 @@ const data = {
       ],
     },
   ],
+  nextSlug: "/work/ssik",
+  nextTitle: "SSIK IT Consulting & Solutions",
 };
 
 export default function ArchtechCaseStudy() {

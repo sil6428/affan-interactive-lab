@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const data = {
-  index: "03",
+  index: "05",
   title: "P2P Messaging",
   label: "Secure communications · Collaborative work in progress",
   summary:

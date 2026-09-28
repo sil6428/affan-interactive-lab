@@ -16,6 +16,8 @@ Normal HTML routes remain available for direct links and accessible reading:
 - `/interests`
 - `/work/archtech`
 - `/work/ssik`
+- `/work/file-integrity-monitor`
+- `/work/otnow`
 - `/work/p2p-messaging`
 - `/work/secure-file-transfer`
 - `/interests/badminton`
@@ -66,6 +68,8 @@ npm test
 
 ## Content notes
 
+- File Integrity Monitor is a public, dependency-free Python tool validated against 45 controlled changes across 500 fixture files, with seven automated tests and explicit baseline-trust limitations.
+- OTNow is a public, local-first Chrome extension for Ontario Tech Canvas. It uses two read-only Canvas endpoints, keeps coursework in local Chrome storage, passes 12 unit tests and a package check, and is prepared—but not yet claimed as published—for Chrome Web Store review.
 - Archtech work covers Google Workspace, website-team coordination, hosting, and deployment for a developing nonprofit. Its source and internal work remain private.
 - SSIK IT Consulting & Solutions was co-founded with Ghayas Sher. We share service planning, security-control research, privacy research, and stakeholder communication. I independently built and maintain its public website and a private, local-first internal intelligence platform with passive collection, evidence review, role-based access, bounded automation, recovery controls, and 110 passing tests. The private source is intentionally not linked.
 - Secure File Transfer is a completed private Python project covering authenticated TLS, certificate and hostname verification, recipient isolation, resumable transfers, SHA-256 verification, tamper quarantine, and 14 automated tests. Its source is intentionally not linked.

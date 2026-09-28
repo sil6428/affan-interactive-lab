@@ -13,6 +13,7 @@ type StaticDocumentId =
   | "archtech"
   | "ssik"
   | "portfolio"
+  | "otnow"
   | "secure-file-transfer"
   | "secure-messaging"
   | "file-integrity-monitor"
@@ -65,7 +66,7 @@ const baseFolders: Record<StaticFolderId, FolderContent> = {
     title: "Home",
     path: "/home/affan",
     items: [
-      { id: "projects", label: "Projects", meta: "7 items", icon: "folder", view: { kind: "folder", id: "projects" } },
+      { id: "projects", label: "Projects", meta: "8 items", icon: "folder", view: { kind: "folder", id: "projects" } },
       { id: "networking", label: "Network Labs", meta: "2 files", icon: "folder", view: { kind: "folder", id: "networking" } },
       { id: "education", label: "Education", meta: "2 files", icon: "folder", view: { kind: "folder", id: "education" } },
       { id: "experience", label: "Experience", meta: "2 files · 4 roles", icon: "folder", view: { kind: "folder", id: "experience" } },
@@ -84,6 +85,7 @@ const baseFolders: Record<StaticFolderId, FolderContent> = {
     title: "Projects",
     path: "/home/affan/Projects",
     items: [
+      { id: "otnow", label: "OTNow.extension", meta: "Local-first Canvas companion", icon: "code", view: { kind: "document", id: "otnow" } },
       { id: "ssik", label: "SSIK Consulting.project", meta: "Private platform + website", icon: "code", view: { kind: "document", id: "ssik" } },
       { id: "archtech", label: "Archtech Operations.project", meta: "Nonprofit technology", icon: "code", view: { kind: "document", id: "archtech" } },
       { id: "portfolio", label: "Portfolio.repo", meta: "Three.js + React", icon: "code", view: { kind: "document", id: "portfolio" } },
@@ -271,6 +273,22 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
     bullets: ["Three.js room and custom models", "Canvas-rendered monitor states", "Keyboard and touch support", "Automated route and content checks"],
     links: [{ label: "View repository", href: "https://github.com/sil6428/affan-portfolio" }],
   },
+  otnow: {
+    title: "OTNow.extension",
+    type: "Chrome extension · Canvas companion · Local-first",
+    intro: "An unofficial Chrome extension for Ontario Tech students that turns Canvas planner data into a persistent deadline panel without requesting a Canvas password or sending course data to a separate server.",
+    bullets: [
+      "Uses the student's existing Ontario Tech Canvas session and limits the bridge to two read-only Canvas endpoints",
+      "Groups assignments, quizzes, discussions, events, planner notes, and other dated work by course, type, or due-date range",
+      "Adds moved-deadline detection, local reminders, course shortcuts, offline cache, and light, dark, or system appearance",
+      "Stores course data and preferences only in local Chrome storage with no telemetry, ads, or OTNow account",
+      "Passed 12 unit tests and a release-package check; the Chrome Web Store package and disclosures are prepared for external submission",
+    ],
+    links: [
+      { label: "Read project case study", href: "https://affan-shaikh.pages.dev/work/otnow" },
+      { label: "View public repository", href: "https://github.com/sil6428/OTNow" },
+    ],
+  },
   "secure-file-transfer": {
     title: "Secure File Transfer.py",
     type: "Private security project · Python + TLS",
@@ -333,6 +351,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Python · Built a SHA-256 file integrity monitor with deterministic baselines, JSON reports, four change categories, script-friendly exit codes, and 7 automated tests",
       "JavaScript and DOM · Built an event-planning tool that adds, edits, displays, and removes events while keeping the page state synchronized",
       "TypeScript and React · Built AFFAN_OS, the portfolio interface, reusable components, window state, keyboard interactions, and accessible controls",
+      "Browser extensions · Built OTNow as a local-first Manifest V3 Canvas companion with allowlisted reads, deadline reconciliation, reminders, offline cache, and 12 unit tests",
       "Three.js · Built the interactive cyber lab, procedural room models, material systems, raycast selection, camera transitions, printer animation, and separate touch controls",
       "Next.js and CSS · Built responsive routes, project case studies, mobile layouts, metadata, custom illustrations, and the desktop-style file environment",
       "Cloudflare Pages · Built and repeatedly deployed this portfolio, then verified live deployments and public routes",
