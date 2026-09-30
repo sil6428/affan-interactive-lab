@@ -10,9 +10,9 @@ const interests = [
     slug: "badminton",
     kicker: "REGIONAL COMPETITOR",
     title: "Badminton",
-    lead: "Fast decisions, controlled movement, and the discipline to keep improving one rally at a time.",
+    lead: "Fast decisions, efficient movement, recovery after mistakes, and the discipline to improve one rally at a time.",
     body:
-      "I competed at the regional level in badminton. Training taught me to stay composed when a match changes quickly, notice patterns in an opponent’s play, and keep working when progress comes in small increments.",
+      "I competed at the regional level in singles and doubles. Training taught me to recover to a useful position after every shot, notice patterns in an opponent’s movement, adjust while a match is still happening, and return attention to the next rally instead of carrying the last mistake forward.",
     detail: "Regional level · Singles & doubles · Still playing",
     visual: (
       <div className="court-visual" aria-hidden="true">
@@ -27,9 +27,9 @@ const interests = [
     slug: "3d-printing",
     kicker: "FROM FILE TO PHYSICAL",
     title: "3D printing & design",
-    lead: "I like watching an idea move from a digital model to something I can hold, refine, and display.",
+    lead: "I like watching digital geometry become a physical object that exposes every weak tolerance, joint, support, and finishing decision.",
     body:
-      "My larger builds include a katana inspired by Elden Ring and Leon’s hand cannon from Red Dead Redemption. Printing the pieces is only the start. Scaling, tolerances, assembly, sanding, and finishing turn every prop into a long problem-solving process.",
+      "My larger builds include a katana inspired by Elden Ring and Leon’s hand cannon from Resident Evil. Printing the pieces is only one stage. Orientation, supports, scaling, tolerances, part separation, reinforced joints, sanding, filler, primer, and finishing turn every prop into a complete design-and-fabrication problem.",
     detail: "Modelling · Slicing · Assembly · Finishing",
     visual: (
       <div className="printer-visual" aria-hidden="true">
@@ -43,9 +43,9 @@ const interests = [
     slug: "reading",
     kicker: "CURRENTLY READING",
     title: "Web novels, manhwa & manga",
-    lead: "Long stories with dense worlds, patient character development, and systems that reward close attention.",
+    lead: "Long stories with dense worlds, patient character development, consistent constraints, and details that reward close attention much later.",
     body:
-      "I spend a lot of time reading East Asian novels, Korean manhwa, and manga. I’m currently working through Lord of the Mysteries and Reverend Insanity. I enjoy stories that take their time, build consistent worlds, and let small details matter later.",
+      "I spend a lot of time reading East Asian web novels, Korean manhwa, and manga. I’m currently working through Lord of the Mysteries and Reverend Insanity. I enjoy stories that establish rules gradually, let characters understand those rules differently, and allow early choices or details to become meaningful hundreds of chapters later.",
     detail: "Lord of the Mysteries · Reverend Insanity",
     visual: (
       <div className="books-visual" aria-hidden="true">
@@ -60,9 +60,9 @@ const interests = [
     slug: "photography",
     kicker: "MOMENTS I WANT TO KEEP",
     title: "Photography",
-    lead: "I like ordinary scenes with good light, strong colour, or a detail that makes me stop walking.",
+    lead: "I like ordinary scenes where light, structure, repetition, or one overlooked detail makes me stop walking.",
     body:
-      "Photography gives me a reason to pay closer attention. I enjoy finding frames in everyday places, keeping the edit simple, and building a visual record of what caught my eye. My VSCO site is where I keep the frames and edits I want to share.",
+      "Photography gives me a reason to pay closer attention to framing, negative space, reflections, texture, and the order in which information enters an image. I keep edits restrained and use my VSCO gallery as a visual record of the ordinary places and arrangements that were specific enough to make me stop.",
     detail: "Street details · Light · Colour · Everyday moments",
     visual: (
       <div className="photo-visual" aria-hidden="true">
@@ -78,9 +78,9 @@ const interests = [
     slug: "home-lab",
     kicker: "CURRENT BUILD",
     title: "The Proxmox home lab",
-    lead: "Old computers are becoming a small server environment built for experiments, mistakes, and learning.",
+    lead: "Old computers are becoming a controlled server environment built for experiments, recoverable mistakes, and direct systems learning.",
     body:
-      "I’m repurposing older computers into a Proxmox server for the fun of it. The goal is to learn virtualization through direct use: creating virtual machines, separating services, testing networking ideas, monitoring resources, and finding practical jobs for hardware that would otherwise sit unused.",
+      "I’m repurposing older computers into a Proxmox environment for virtual machines, separated services, network experiments, storage, monitoring, and recovery practice. The goal is to deploy an idea, observe it, break an assumption, restore a known-good state, and document the result without risking the computer I depend on for school.",
     detail: "Proxmox · Virtual machines · Networking · Reused hardware",
     visual: (
       <div className="rack-visual" aria-hidden="true">
@@ -97,7 +97,7 @@ export default function Interests() {
   return (
     <main>
       <header className="site-header">
-        <Link className="identity" href="/"><strong>Affan Shaikh</strong><span>Student studying cybersecurity</span></Link>
+        <Link className="identity" href="/"><strong>Affan Shaikh</strong><span>Networking and IT Security student</span></Link>
         <p className="sidebar-location"><span>Location</span>Oshawa, Ontario</p>
         <nav className="nav-pill" aria-label="Primary navigation">
           <Link href="/">Work</Link><Link href="/info">Info</Link><Link className="active" href="/interests">Interests</Link>
@@ -113,7 +113,7 @@ export default function Interests() {
         <p className="section-label"><span /> Interests</p>
         <h1>What I spend time on outside class.</h1>
         <p>
-          A few things I care about, what I&apos;ve done with them, and what I&apos;m doing next.
+          Detailed notes on the interests that shape how I practise, design, observe, build, and learn outside formal coursework.
         </p>
         <div className="interest-index" aria-hidden="true">
           <span>01 SPORT</span><span>02 MAKING</span><span>03 READING</span><span>04 PHOTOS</span><span>05 HOME LAB</span>

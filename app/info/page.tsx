@@ -12,19 +12,19 @@ const timeline = [
     role: "Bachelor of Information Technology",
     place: "Ontario Tech University",
     date: "09/2024 — Present",
-    detail: "Bachelor of Information Technology (Honours) in Networking and IT Security, with graduation expected in April 2028. Studying network architecture, systems, programming, and security fundamentals.",
+    detail: "Bachelor of Information Technology (Honours) in Networking and IT Security, with graduation expected in April 2028. Coursework connects Cisco routing and switching, IPv4/IPv6 design, network services, operating systems, Python, cryptography, cybercrime, trust, and security controls.",
   },
   {
     role: "Co-Founder and Website Developer",
     place: "SSIK IT Consulting & Solutions · Ontario",
     date: "05/2026 — Present",
-    detail: "Co-founded SSIK with Ontario Tech classmate Ghayas Sher. We share consulting, security assessment, privacy research, and stakeholder responsibilities. I independently built the public website and a private, local-first internal research platform verified by 110 passing tests.",
+    detail: "Co-founded SSIK with Ontario Tech classmate Ghayas Sher. We share consulting, security-assessment, privacy-research, and stakeholder responsibilities. I independently delivered the public website and a private, local-first 12-stage research and review platform verified by 110 passing tests plus lint, type, migration, integrity, and secret checks.",
   },
   {
     role: "Technical Operations and Hosting",
     place: "Archtech · Oshawa, ON",
     date: "2026 — Present",
-    detail: "Set up Google Workspace, coordinate the website team, and manage hosting and deployment for a developing nonprofit.",
+    detail: "Established Google Workspace, coordinate the contributors building the private website, and own hosting and deployment for a developing nonprofit. The role focuses on organizational account ownership, understandable handoffs, repeatable releases, and verification of the live result.",
   },
   {
     role: "Sales Associate",
@@ -48,7 +48,7 @@ export default function Info() {
   return (
     <main>
       <header className="site-header">
-        <Link className="identity" href="/"><strong>Affan Shaikh</strong><span>Student studying cybersecurity</span></Link>
+        <Link className="identity" href="/"><strong>Affan Shaikh</strong><span>Networking and IT Security student</span></Link>
         <p className="sidebar-location"><span>Location</span>Oshawa, Ontario</p>
         <nav className="nav-pill" aria-label="Primary navigation">
           <Link href="/">Work</Link><Link className="active" href="/info">Info</Link><Link href="/interests">Interests</Link>
@@ -73,19 +73,36 @@ export default function Info() {
           <div className="story">
             <h2>A little context</h2>
             <p>
-              I&apos;m a student studying cybersecurity at Ontario Tech University, with graduation expected in April 2028. My work moves between
-              configuring networks, understanding security controls, and building software that solves clear problems.
+              I&apos;m completing Ontario Tech University&apos;s Networking and IT Security degree, with graduation expected in April 2028. My work moves between
+              configuring routed and switched networks, examining how security controls fail, and building software that makes technical evidence understandable to the person operating it.
             </p>
             <p>
-              I learn best by building. A lab teaches me why a route fails. A small application makes access control
-              concrete. Each project gives me a new system to understand and improve.
+              I learn best by building and verifying. A Cisco lab makes a failed route observable through interface state, routing tables, packet captures, and end-to-end tests. A security application turns broad terms such as identity, authorization, integrity, replay protection, or recovery into decisions that have to survive malformed input and interrupted workflows.
             </p>
             <p>
               I co-founded SSIK with my Ontario Tech classmate Ghayas Sher. We share its consulting, security, privacy,
-              and stakeholder responsibilities. I independently built its public website and private SSIK Intelligence V1 platform. I also handle Google Workspace and website hosting for a developing
-              nonprofit while preparing for the CompTIA Security+ certification.
+              and stakeholder responsibilities, while I independently built its public website and private SSIK Intelligence V1 platform. I also handle Google Workspace, account continuity, website-team coordination, hosting, and deployment for a developing nonprofit while preparing for CompTIA Security+ and expanding a Proxmox home lab.
+            </p>
+            <p>
+              I am looking for co-op work where I can contribute to real infrastructure and learn from experienced operators. Network operations, security operations, systems administration, infrastructure security, and security-focused development all fit the direction of the work collected here.
+            </p>
+            <p>
+              I use this portfolio as an ongoing record rather than a polished snapshot that hides the process. Completed work includes measurements and verification; active work includes its present boundary and next step; private work explains architecture without exposing confidential material; and older projects stay useful when they show where a skill started.
+            </p>
+            <p>
+              That also means correcting the record when something changes. Test totals, project status, deployment links, limitations, and responsibilities should agree across the resume, room, AFFAN_OS, GitHub, and the long-form pages. I would rather describe a smaller verified result accurately than make a broad claim that I cannot explain in an interview.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="skills-section wrap">
+        <div className="section-heading"><p><span /> Documentation approach</p><span>How I maintain this site</span></div>
+        <div className="skill-grid">
+          <article><span>01</span><h2>Current state</h2><p>I separate completed, active, planned, private, and externally blocked work so a roadmap item never reads like a shipped feature.</p></article>
+          <article><span>02</span><h2>Evidence</h2><p>I record tests, controlled measurements, configurations, screenshots, public source, and live verification beside the specific claim each item supports.</p></article>
+          <article><span>03</span><h2>Boundaries</h2><p>Every security project explains what it protects, which assumptions it requires, what it rejects, and what remains outside the current design.</p></article>
+          <article><span>04</span><h2>Lessons</h2><p>I keep the decisions, failures, tradeoffs, and next steps that shaped the result so the site documents how the work developed, not only how it looks now.</p></article>
         </div>
       </section>
 

@@ -22,7 +22,10 @@ test("renders the full-screen interactive portfolio", async () => {
   assert.match(response.headers.get("permissions-policy") ?? "", /camera=\(\)/);
   const html = await response.text();
   assert.match(html, /Affan Shaikh/);
-  assert.match(html, /AFFAN_OS \/ INTERACTIVE PORTFOLIO/);
+  assert.match(html, /INTERACTIVE PORTFOLIO \/ DOCUMENTED BUILDS/);
+  assert.match(html, /Networking \+ IT Security/);
+  assert.match(html, /Portfolio shortcuts/);
+  assert.match(html, /Affan_Shaikh_Resume\.pdf/);
   assert.match(html, /Explore the lab/);
   assert.match(html, /Move your pointer to shift the room/);
   assert.match(html, /Interactive 3D portfolio/);
@@ -44,10 +47,10 @@ test("renders the full-screen interactive portfolio", async () => {
   assert.doesNotMatch(html, /Room controls/);
   assert.doesNotMatch(html, /08 ACTIVE OBJECTS/);
   assert.doesNotMatch(html, /href="#room-directory"/);
-  assert.doesNotMatch(html, /class="immersive-header"/);
+  assert.match(html, /class="immersive-header"/);
   assert.doesNotMatch(html, /class="immersive-footer"/);
   assert.doesNotMatch(html, /class="immersive-status"/);
-  assert.doesNotMatch(html, /href="\/info"/);
+  assert.match(html, /href="\/info"/);
   assert.doesNotMatch(html, /href="\/interests"/);
   assert.doesNotMatch(html, /href="\/work\//);
   assert.match(html, /Soundtrack/);
@@ -58,11 +61,11 @@ test("renders the current nonprofit operations case study", async () => {
   const archtechResponse = await render("/work/archtech");
   assert.equal(archtechResponse.status, 200);
   const archtech = await archtechResponse.text();
-  assert.match(archtech, /Google Workspace foundation/);
-  assert.match(archtech, /Hosting responsibility/);
+  assert.match(archtech, /Google Workspace environment/);
+  assert.match(archtech, /hosting and deployment path/);
   assert.match(archtech, /Website team coordination/);
   assert.match(archtech, /Repository.*Private/s);
-  assert.match(archtech, /website source and internal project material remain private/i);
+  assert.match(archtech, /website source and unfinished organizational material remain private/i);
 });
 
 test("renders SSIK's shared co-founder responsibilities and Affan's additional website work", async () => {
@@ -78,7 +81,7 @@ test("renders SSIK's shared co-founder responsibilities and Affan's additional w
   assert.match(html, /In addition to that shared work/i);
   assert.match(html, /12-stage local V1/i);
   assert.match(html, /110 passing tests/i);
-  assert.match(html, /outbound delivery disabled/i);
+  assert.match(html, /outbound delivery remains disabled/i);
   assert.match(html, /sil6428\.github\.io\/SSIK-website/);
 });
 
@@ -109,7 +112,7 @@ test("renders the measured integrity and OTNow case studies", async () => {
   const integrity = await integrityResponse.text();
   assert.match(integrity, /45 of 45 detected/);
   assert.match(integrity, /500 files/);
-  assert.match(integrity, /Nine passing/);
+  assert.match(integrity, /nine passing automated tests/i);
   assert.match(integrity, /Integrity Desk/);
   assert.match(integrity, /github\.com\/sil6428\/file-integrity-monitor/);
 
@@ -118,8 +121,53 @@ test("renders the measured integrity and OTNow case studies", async () => {
   const otnow = await otnowResponse.text();
   assert.match(otnow, /Two read-only Canvas endpoints/);
   assert.match(otnow, /12 unit tests/);
-  assert.match(otnow, /does not claim a public store listing yet/i);
+  assert.match(otnow, /does not claim a store listing/i);
   assert.match(otnow, /github\.com\/sil6428\/OTNow/);
+});
+
+test("renders the networking and portfolio build journals", async () => {
+  const networkingResponse = await render("/work/cisco-networking-labs");
+  assert.equal(networkingResponse.status, 200);
+  const networking = await networkingResponse.text();
+  assert.match(networking, /Cisco Networking Labs/);
+  assert.match(networking, /IPv4 and IPv6/);
+  assert.match(networking, /Troubleshooting sequence/);
+  assert.match(networking, /Realism and limits/);
+
+  const portfolioResponse = await render("/work/portfolio");
+  assert.equal(portfolioResponse.status, 200);
+  const portfolio = await portfolioResponse.text();
+  assert.match(portfolio, /Interactive Portfolio/);
+  assert.match(portfolio, /AFFAN_OS/);
+  assert.match(portfolio, /Performance strategy/);
+  assert.match(portfolio, /rendered-output tests/);
+  assert.match(portfolio, /Lessons and ongoing record/);
+});
+
+test("keeps complete project journals inside their AFFAN_OS files", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const desktop = await readFile(new URL("../app/desktop-os.tsx", import.meta.url), "utf8");
+  const journals = await readFile(new URL("../app/project-journal-data.ts", import.meta.url), "utf8");
+
+  for (const journal of [
+    "archtech",
+    "ssik",
+    "portfolio",
+    "otnow",
+    "secureFileTransfer",
+    "secureMessaging",
+    "fileIntegrityMonitor",
+    "eventPlanner",
+    "ciscoNetworkingLabs",
+  ]) {
+    assert.match(desktop, new RegExp(`body: projectJournalBodies\\.${journal}`));
+  }
+
+  assert.match(desktop, /At a glance/);
+  assert.doesNotMatch(desktop, /Read .*case study/i);
+  assert.doesNotMatch(desktop, /Read complete networking lab record/i);
+  assert.match(journals, /75 automated tests/);
+  assert.match(journals, /nine passing automated tests/i);
 });
 
 test("publishes crawler and structured profile metadata", async () => {
@@ -141,6 +189,8 @@ test("publishes crawler and structured profile metadata", async () => {
   assert.match(sitemap, /work\/otnow/);
   assert.match(sitemap, /work\/p2p-messaging/);
   assert.match(sitemap, /work\/secure-file-transfer/);
+  assert.match(sitemap, /work\/cisco-networking-labs/);
+  assert.match(sitemap, /work\/portfolio/);
 
   const robotsResponse = await render("/robots.txt");
   assert.equal(robotsResponse.status, 200);
@@ -567,19 +617,22 @@ test("includes the device-local soundtrack and hidden terminal", async () => {
   assert.match(room, /SCENE RESPONSIVE/);
   assert.match(room, /affan-lab-discoveries/);
   assert.match(room, /viewed/);
+  assert.match(room, /requestIdleCallback/);
+  assert.match(room, /optional bloom pass/);
   assert.doesNotMatch(room, /rack-fan-/);
   assert.doesNotMatch(room, /const rackFans/);
   assert.doesNotMatch(room, /CYBER ROVER/);
   assert.doesNotMatch(room, /driveState/);
   assert.doesNotMatch(room, /rover-pad/);
   assert.doesNotMatch(room, /from "next\/link"/);
-  assert.doesNotMatch(room, /href: "\/work\//);
-  assert.doesNotMatch(room, /href: "\/interests\//);
+  assert.match(room, /href: "\/work\/archtech"/);
+  assert.match(room, /href: "\/work\/cisco-networking-labs"/);
+  assert.match(room, /href: "\/interests\/home-lab"/);
 
   assert.match(desktopOs, /AFFAN_OS portfolio desktop/);
   assert.match(desktopOs, /Search files and apps/);
   assert.match(desktopOs, /Projects/);
-  assert.match(desktopOs, /Network Labs/);
+  assert.match(desktopOs, /Cisco Networking Labs/);
   assert.match(desktopOs, /Education/);
   assert.match(desktopOs, /Experience/);
   assert.match(desktopOs, /Interests/);
@@ -614,9 +667,9 @@ test("includes the device-local soundtrack and hidden terminal", async () => {
   assert.match(desktopOs, /OTNow\.extension/);
   assert.match(desktopOs, /github\.com\/sil6428\/OTNow/);
   assert.match(desktopOs, /Secure File Transfer\.py/);
-  assert.match(desktopOs, /14 automated tests/);
-  assert.match(desktopOs, /P2P Messaging\.wip/);
-  assert.match(desktopOs, /Local secure messaging UI/);
+  assert.match(desktopOs, /16 automated tests/);
+  assert.match(desktopOs, /P2P Messaging\.project/);
+  assert.match(desktopOs, /local browser workspace/);
   assert.match(desktopOs, /75 automated tests/);
   assert.match(desktopOs, /github\.com\/sil6428\/P2P-messaging/);
   assert.match(desktopOs, /unaudited work in progress/);

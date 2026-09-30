@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { learningLogEntries } from "./learning-log-data.generated";
+import { projectJournalBodies } from "./project-journal-data";
 import { tryHackMeEntries } from "./tryhackme-data";
 
 type StaticFolderId = "home" | "projects" | "networking" | "education" | "experience" | "interests" | "contact" | "inspiration";
@@ -90,7 +91,7 @@ const baseFolders: Record<StaticFolderId, FolderContent> = {
       { id: "archtech", label: "Archtech Operations.project", meta: "Nonprofit technology", icon: "code", view: { kind: "document", id: "archtech" } },
       { id: "portfolio", label: "Portfolio.repo", meta: "Three.js + React", icon: "code", view: { kind: "document", id: "portfolio" } },
       { id: "secure-transfer", label: "Secure File Transfer.py", meta: "TLS service + local browser workspace", icon: "code", view: { kind: "document", id: "secure-file-transfer" } },
-      { id: "secure-messaging", label: "P2P Messaging.wip", meta: "Local secure messaging UI", icon: "code", view: { kind: "document", id: "secure-messaging" } },
+      { id: "secure-messaging", label: "P2P Messaging.project", meta: "Public educational prototype · active", icon: "code", view: { kind: "document", id: "secure-messaging" } },
       { id: "integrity", label: "File Integrity Monitor.py", meta: "SHA-256 engine + Integrity Desk UI", icon: "code", view: { kind: "document", id: "file-integrity-monitor" } },
       { id: "events", label: "Event Planner.js", meta: "JavaScript", icon: "code", view: { kind: "document", id: "event-planner" } },
     ],
@@ -233,26 +234,29 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
   about: {
     title: "About.txt",
     type: "Plain text",
-    intro: "I am a Networking and IT Security student at Ontario Tech University, with graduation expected in April 2028. I like building systems I can take apart, understand, and improve.",
+    intro: "I am completing a Bachelor of Information Technology (Honours) in Networking and IT Security at Ontario Tech University, with graduation expected in April 2028. I learn most effectively when I can configure a system, observe its behavior, break an assumption, and improve the design using evidence instead of treating a successful command as proof that the whole system works.",
     bullets: [
-      "Build and troubleshoot routed and switched Cisco lab environments",
-      "Develop security tools with usable local interfaces and explicit threat boundaries",
-      "Co-founder of SSIK IT Consulting & Solutions and builder of its private internal platform",
-      "Manage nonprofit collaboration infrastructure, hosting, and deployment workflows",
-      "Continue learning through a Proxmox home lab, 3D printing, badminton, and photography",
+      "Build and troubleshoot routed and switched Cisco lab environments using IPv4/IPv6 plans, VLANs, trunks, network services, routing protocols, IOS verification commands, and packet-level evidence",
+      "Develop security tools with usable local interfaces, shared CLI/core logic, automated tests, controlled benchmarks, and explicit statements about what each control can and cannot guarantee",
+      "Co-founded SSIK IT Consulting & Solutions, share its consulting and security responsibilities, and independently built its public website and 110-test private internal platform",
+      "Manage nonprofit collaboration infrastructure, account ownership, website-team coordination, hosting, deployment, and release verification for Archtech",
+      "Bring the same iterative approach to a Proxmox home lab, 3D printing, regional badminton experience, long-form reading, and photography",
     ],
   },
   archtech: {
     title: "Archtech Operations.project",
     type: "Nonprofit technology operations · Active",
-    intro: "I set up Google Workspace for a developing nonprofit and coordinate the team building its website. My primary responsibility is website hosting and deployment, while I contribute a smaller share of the implementation.",
+    intro: "I established Google Workspace for a developing nonprofit, coordinate the contributors building its private website, and own the hosting and deployment path. My main responsibility is operational continuity: clear account ownership, understandable access, documented handoffs, repeatable releases, and verification that a public deployment is genuinely reachable.",
     bullets: [
       "Configured the nonprofit's Google Workspace environment",
       "Coordinate the team building the full website",
       "Own the website hosting and deployment workflow",
-      "Support development while keeping infrastructure as my main focus",
-      "Source code and internal project material remain private",
+      "Support implementation while keeping infrastructure, access, and delivery as my primary focus",
+      "Separate organizational access from personal accounts so the project is not dependent on one person's login",
+      "Coordinate source, hosting, and release responsibilities before launch work is treated as complete",
+      "Keep source code and unfinished internal material private while describing the role honestly through process and outcomes",
     ],
+    body: projectJournalBodies.archtech,
   },
   ssik: {
     title: "SSIK Consulting.project",
@@ -267,6 +271,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Built the complete public front end and responsive website",
       "Maintain the GitHub Pages deployment",
     ],
+    body: projectJournalBodies.ssik,
     links: [
       { label: "Visit SSIK website", href: "https://sil6428.github.io/SSIK-website/index.html" },
       { label: "View website repository", href: "https://github.com/sil6428/SSIK-website" },
@@ -275,14 +280,19 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
   portfolio: {
     title: "Portfolio.repo",
     type: "Repository · React + Three.js",
-    intro: "This portfolio is a production Next.js application built around an interactive Three.js room and a simulated desktop operating system. It presents project evidence through selectable room objects, detailed case-study routes, accessible alternatives, and a stable Cloudflare Pages deployment.",
+    intro: "This portfolio is a production Next.js application built around an interactive Three.js room and the AFFAN_OS desktop environment. The room combines generated geometry, selected lightweight CC0 glTF assets, adaptive rendering, object-level navigation, camera transitions, and a non-3D index; the desktop then exposes project documents, technical evidence, learning history, interests, contact paths, and the current resume.",
     bullets: [
       "Built procedural room objects, responsive camera transitions, lighting, materials, shadows, and an adaptive quality tier for lower-powered devices",
+      "Kept the room's desk, workstation, printer, rack, bookshelf, sports equipment, props, and cat as original procedural models, with one documented locally hosted CC0 camera asset",
       "Created AFFAN_OS with folders, project documents, keyboard navigation, touch controls, window state, and direct links to evidence",
       "Added accessible non-3D controls so project content remains reachable without precise pointer interaction",
-      "Maintained metadata, sitemap routes, resume delivery, responsive layouts, deployment automation, and automated content checks",
+      "Deferred optional bloom and glTF parsing until after the room can render, throttled idle frames, paused hidden-tab work, and applied device-based pixel-ratio, shadow, reflection, and geometry tiers",
+      "Maintained metadata, sitemap routes, resume delivery, responsive layouts, deployment automation, and automated rendered-content checks",
     ],
-    links: [{ label: "View repository", href: "https://github.com/sil6428/affan-portfolio" }],
+    body: projectJournalBodies.portfolio,
+    links: [
+      { label: "View repository", href: "https://github.com/sil6428/affan-portfolio" },
+    ],
   },
   otnow: {
     title: "OTNow.extension",
@@ -295,8 +305,8 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Stores course data and preferences only in local Chrome storage with no telemetry, ads, or OTNow account",
       "Passed 12 unit tests and a release-package check; the Chrome Web Store package and disclosures are prepared for external submission",
     ],
+    body: projectJournalBodies.otnow,
     links: [
-      { label: "Read project case study", href: "https://affan-shaikh.pages.dev/work/otnow" },
       { label: "View public repository", href: "https://github.com/sil6428/OTNow" },
     ],
   },
@@ -313,10 +323,10 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Verified 8 upload/download round trips totaling 13,632,512 bytes and resumed a 2,097,152-byte upload after a 700,000-byte interruption",
       "Passed 16 automated tests covering authentication, throttling, isolation, traversal attempts, interruption, tampering, quarantine, dashboard setup, and password-safe audit logging",
     ],
-    links: [{ label: "Read public case study", href: "https://affan-shaikh.pages.dev/work/secure-file-transfer" }],
+    body: projectJournalBodies.secureFileTransfer,
   },
   "secure-messaging": {
-    title: "P2P Messaging.wip",
+    title: "P2P Messaging.project",
     type: "Public collaborative work in progress · Python cryptography + TCP",
     intro: "A collaborative educational prototype for direct communication between explicitly verified peers. Its local browser workspace supports encrypted local/LAN messaging, distinct conversations, contact verification, encrypted history, and signed attachment references while remaining clearly marked as unaudited work in progress.",
     bullets: [
@@ -328,8 +338,8 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Passed 75 automated tests covering browser authentication, CSRF, conversation controls, adversarial parsing, tampering, spoofing, metadata integrity, attachment verification, replay attempts, acknowledgements, and end-to-end delivery",
       "Does not claim forward secrecy, NAT traversal, automatic file transfer or quarantine, multi-device support, independent security review, or production readiness",
     ],
+    body: projectJournalBodies.secureMessaging,
     links: [
-      { label: "Read project case study", href: "https://affan-shaikh.pages.dev/work/p2p-messaging" },
       { label: "View public repository", href: "https://github.com/sil6428/P2P-messaging" },
     ],
   },
@@ -345,13 +355,23 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Passed 9 automated tests, including same-size content tampering, rename inference, saved dashboard evidence, and required-path validation",
       "Uses only the Python standard library and documents why the baseline and execution environment still need separate protection",
     ],
-    links: [{ label: "View public repository", href: "https://github.com/sil6428/file-integrity-monitor" }],
+    body: projectJournalBodies.fileIntegrityMonitor,
+    links: [
+      { label: "View public repository", href: "https://github.com/sil6428/file-integrity-monitor" },
+    ],
   },
   "event-planner": {
     title: "Event Planner.js",
     type: "JavaScript source note",
-    intro: "A browser-based event planner for adding, editing, displaying, and removing events through DOM manipulation.",
-    bullets: ["Create, update, and delete flows", "DOM rendering", "Form validation", "Clear state changes"],
+    intro: "An earlier browser-based JavaScript project that turns event form input into a visible, editable schedule. It gave me practice keeping interface state and rendered DOM elements synchronized instead of treating a form submission as the end of the workflow.",
+    body: projectJournalBodies.eventPlanner,
+    bullets: [
+      "Create an event from validated title, date, time, and description fields",
+      "Render saved events into a consistent list instead of manually duplicating markup",
+      "Load an existing event back into the form for editing and replace the correct record on save",
+      "Remove an event and immediately reconcile the displayed state",
+      "Use clear empty, invalid, editing, and saved states so the user can understand what changed",
+    ],
   },
   skills: {
     title: "Skills.md",
@@ -362,8 +382,8 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Troubleshooting · Used ping, traceroute, show commands, Wireshark, packet captures, routing tables, and interface state to isolate connectivity and configuration problems",
       "Cybersecurity · Applied authentication, authorization, role-based access control, encryption, hashing, and vulnerability analysis through security coursework and personal projects",
       "Secure messaging · Co-developed a local browser workspace with verified peer contacts, encrypted and signed direct messaging, authenticated replies, encrypted history, attachment-reference checks, replay protection, and transport limits in a 75-test collaborative prototype",
-      "Secure transfer · Built authenticated TLS transfers with certificate and hostname verification, resumable byte offsets, recipient isolation, SHA-256 re-hashing, mismatch quarantine, and 14 automated tests",
-      "Python · Built a SHA-256 file integrity monitor with deterministic baselines, JSON reports, four change categories, script-friendly exit codes, and 7 automated tests",
+      "Secure transfer · Built authenticated TLS transfers with certificate and hostname verification, resumable byte offsets, recipient isolation, SHA-256 re-hashing, mismatch quarantine, a loopback Transfer Desk interface, and 16 automated tests",
+      "Python · Built a SHA-256 file integrity monitor with deterministic baselines, JSON reports, five evidence categories, script-friendly exit codes, a loopback Integrity Desk interface, and 9 automated tests",
       "JavaScript and DOM · Built an event-planning tool that adds, edits, displays, and removes events while keeping the page state synchronized",
       "TypeScript and React · Built AFFAN_OS, the portfolio interface, reusable components, window state, keyboard interactions, and accessible controls",
       "Browser extensions · Built OTNow as a local-first Manifest V3 Canvas companion with allowlisted reads, deadline reconciliation, reminders, offline cache, and 12 unit tests",
@@ -381,31 +401,33 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
   education: {
     title: "Ontario Tech.txt",
     type: "Education record",
-    intro: "Bachelor of Information Technology (Honours) in Networking and IT Security at Ontario Tech University in Oshawa, Ontario. I started in September 2024 and expect to graduate in April 2028.",
+    intro: "Bachelor of Information Technology (Honours) in Networking and IT Security at Ontario Tech University in Oshawa, Ontario. I began in September 2024 and expect to graduate in April 2028. The program combines applied Cisco networking, operating systems, software fundamentals, cybersecurity, cryptography, trust, and the organizational context around technical controls.",
     bullets: [
-      "Advanced Networking I",
-      "Cybersecurity Fundamentals",
-      "Programming I with Python",
-      "Computer Systems",
-      "Coursework combines network configuration, systems, security, and software fundamentals",
+      "Advanced Networking I · routed and switched Cisco topologies, IPv4/IPv6, services, dynamic routing, verification, and fault isolation",
+      "Cryptography and Network Security · classical and modern cryptographic concepts, calculations, protocols, and limitations",
+      "Trust Systems and Cybercrime · human, organizational, legal, and technical dimensions of security decisions",
+      "Programming I with Python and web development · algorithmic thinking, data handling, testing, browser behavior, and interface state",
+      "Computer Systems · hardware, operating-system, storage, and process foundations behind higher-level security controls",
     ],
     links: [{ label: "Visit Ontario Tech", href: "https://ontariotechu.ca/" }],
   },
   certification: {
     title: "Security+.plan",
     type: "Certification plan · In progress",
-    intro: "I am preparing for CompTIA Security+. No exam date is currently booked.",
+    intro: "I am preparing for CompTIA Security+ as a structured review of security fundamentals that connect my coursework, Cisco labs, and project work. No exam date is currently booked, so I describe this as study in progress rather than a certification earned.",
     bullets: [
       "Threats, vulnerabilities, and mitigations",
       "Security architecture and operations",
       "Identity, authentication, and access control",
       "Risk, governance, and incident-response fundamentals",
+      "Use project threat models and lab observations to connect exam terminology to implemented controls",
+      "Keep the credential off the earned-certifications section until the exam is passed",
     ],
   },
   "work-experience": {
     title: "Work Experience.txt",
     type: "Employment record",
-    intro: "My experience combines technical operations, business-building, customer service, communication, and responsibility in fast-moving environments.",
+    intro: "My experience combines early technical operations and business-building with customer service and community responsibility. The settings are different, but each role requires clear ownership, accurate handoffs, calm communication, and follow-through when another person depends on the result.",
     bullets: [
       "Co-Founder and Website Developer · SSIK IT Consulting & Solutions · May 2026 to present",
       "Co-founded SSIK with Ontario Tech classmate Ghayas Sher; share consulting, security assessment, privacy research, and stakeholder responsibilities; independently built the public website and private SSIK Intelligence V1 platform",
@@ -422,7 +444,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
   volunteer: {
     title: "Volunteer Work.txt",
     type: "Community experience · 430 hours",
-    intro: "I have completed more than 430 hours of community and event volunteer work in Oshawa.",
+    intro: "I have completed more than 430 hours of community and event volunteer work in Oshawa. The work involved practical operations rather than observation: preparing spaces, registering guests, answering questions, directing movement, solving small problems before they blocked an event, and staying useful during busy periods.",
     bullets: [
       "Community Volunteer · Al Arqam Islamic Centre · 400 hours",
       "Supported registration, guest service, crowd flow, setup, cleanup, and attendee needs at large community events",
@@ -433,50 +455,52 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
   "vlan-lab": {
     title: "Cisco Routing and Switching Lab.md",
     type: "Applied Cisco networking lab record",
-    intro: "Hands-on Cisco IOS and Packet Tracer work covering routed and switched topologies, address planning, service configuration, verification, and fault isolation. These labs are the closest simulation of day-to-day network operations in my current experience because each topology has to be configured, observed, broken down, and validated end to end.",
+    intro: "Hands-on Cisco IOS and Packet Tracer work covering routed and switched topologies, address planning, network services, verification, and fault isolation. These labs are the closest repeated simulation of day-to-day network operations in my current experience: requirements become a topology and address plan, device configurations have to agree, evidence must prove reachability, and faults have to be isolated without rebuilding everything blindly.",
     bullets: [
       "Planned and assigned IPv4 and IPv6 addresses and verified interfaces, gateways, routes, and neighbor reachability",
       "Created VLANs, assigned access ports, configured 802.1Q trunks, and tested router-on-a-stick and inter-VLAN routing",
       "Configured DHCP, DNS, NAT, STP, and introductory OSPF and EIGRP behaviors across multi-device topologies",
       "Used IOS show commands, routing tables, interface state, ping, traceroute, Wireshark, and packet captures to isolate faults",
       "Retested end-to-end paths after changes instead of treating successful command entry as proof that a network worked",
+      "Documented intended state, observed state, likely fault domain, corrective change, and final verification so troubleshooting remains reproducible",
     ],
+    body: projectJournalBodies.ciscoNetworkingLabs,
   },
   proxmox: {
     title: "Proxmox-plan.md",
     type: "Home-lab plan",
-    intro: "I am turning older computers into a Proxmox lab for virtual machines, networking experiments, storage, and self-hosted services.",
-    bullets: ["Reuse existing hardware", "Separate test networks", "Practise virtualization and backups", "Document services before exposing anything externally"],
+    intro: "I am turning older computers into a Proxmox lab for virtual machines, segmented networking experiments, storage, backups, and self-hosted services. The objective is not simply to keep machines powered on; it is to create a disposable environment where I can reproduce faults, rebuild services, observe traffic, and practise recovery without placing daily-use systems at risk.",
+    bullets: ["Inventory and reuse existing hardware before buying new equipment", "Separate management, service, and intentionally vulnerable test networks", "Create, snapshot, restore, migrate, and rebuild Linux and Windows virtual machines", "Plan storage ownership, backup destinations, restore checks, addressing, and administrative access", "Document every service and recovery path before exposing anything externally"],
   },
   reading: {
     title: "Reading-list.txt",
     type: "Plain text",
-    intro: "I read East Asian web novels, Korean manhwa, and manga. My current long-form reads include Lord of the Mysteries and Reverend Insanity.",
+    intro: "I read East Asian web novels, Korean manhwa, and manga, with a preference for long stories that establish consistent rules and let choices accumulate into consequences. My current long-form reads include Lord of the Mysteries and Reverend Insanity, both of which reward remembering early details and questioning what each character knows.",
   },
   badminton: {
     title: "Badminton.txt",
     type: "Interest record · Regional competitor",
-    intro: "I competed at the regional level in badminton. The sport taught me to make fast decisions, stay composed when a match changes, and improve through repetition.",
+    intro: "I competed at the regional level in badminton in singles and doubles. The sport taught me to make fast decisions with incomplete information, recover position after every action, stay composed when momentum changes, and improve a weak movement through repetition rather than hoping it disappears under pressure.",
     bullets: ["Regional-level competition", "Footwork, timing, and controlled movement", "Match preparation and disciplined practice", "Learning from every rally instead of dwelling on the last point"],
   },
   "3d-printing": {
     title: "3D Printing.txt",
     type: "Design and fabrication notes",
-    intro: "I enjoy turning digital models into physical objects and learning how orientation, supports, layer height, tolerances, and material affect a print.",
-    bullets: ["Printed a katana inspired by Elden Ring", "Printed Leon's hand cannon from Red Dead Redemption", "Iterate on failed supports and weak overhangs", "Use the portfolio printer as an animated model of the real process"],
+    intro: "I enjoy turning digital models into physical objects and learning how orientation, supports, layer height, clearances, joints, and material affect a print. The physical result is useful evidence: weak overhangs, poor tolerances, visible seams, and failed layers reveal exactly where the digital plan was incomplete.",
+    bullets: ["Printed and assembled a full katana inspired by Elden Ring", "Printed a replica hand cannon and divided larger geometry into buildable sections", "Use small tolerance tests before committing material to long multipart prints", "Iterate on failed supports, weak overhangs, part orientation, and joint design", "Sand, fill, prime, and finish separate parts so the final prop reads as one object", "Use the portfolio printer as an animated mechanical model of slicing and layer-by-layer fabrication"],
   },
   photography: {
     title: "Photography.url",
     type: "Photography profile",
-    intro: "Photography gives me a reason to notice framing, light, repetition, texture, and the small details people usually pass by.",
-    bullets: ["Street and everyday photography", "Architecture, shadows, reflections, and quiet scenes", "Editing and sequencing images into a consistent gallery"],
+    intro: "Photography gives me a reason to notice framing, light, repetition, texture, negative space, and the small details people usually pass. It also makes visual decisions concrete: every frame includes something, excludes something else, and establishes an order in which the viewer notices information.",
+    bullets: ["Street and everyday photography built around ordinary places rather than staged scenes", "Architecture, shadows, reflections, repeating forms, and quiet arrangements", "Restrained edits that support the light and colour already present", "Sequence selected images into a gallery with a consistent visual rhythm", "Apply the same hierarchy and negative-space awareness to interface design"],
     links: [{ label: "Open VSCO gallery", href: "https://sy1len.vsco.site" }],
   },
   "home-lab": {
     title: "Home Lab.md",
     type: "Current technical project",
-    intro: "I am repurposing older computers into a Proxmox server because I want a safe place to practise virtualization, networking, storage, and self-hosting.",
-    bullets: ["Build isolated virtual networks", "Create and rebuild virtual machines", "Practise backups and service recovery", "Document changes before exposing any service", "Reuse older hardware instead of treating it as waste"],
+    intro: "I am repurposing older computers into a Proxmox environment because I want a safe place to practise virtualization, networking, storage, logging, and self-hosting. A useful lab should let me deploy a service, break its assumptions, inspect the failure, restore it, and record what changed without affecting the computer I rely on for school.",
+    bullets: ["Build isolated management, service, and test networks", "Create, clone, snapshot, and rebuild virtual machines", "Observe traffic and access boundaries between guests", "Practise backups and prove recovery with restore tests", "Document changes, dependencies, credentials ownership, and rollback steps before exposing any service", "Reuse older hardware instead of treating it as waste"],
   },
   resume: {
     title: "Resume.pdf",
@@ -516,7 +540,7 @@ const desktopGroups: Array<{ id: string; label: string; items: OsItem[] }> = [
     items: [
       { id: "home", label: "Home", meta: "Personal files", icon: "folder", view: { kind: "folder", id: "home" } },
       { id: "projects", label: "Projects", meta: "Development work", icon: "folder", view: { kind: "folder", id: "projects" } },
-      { id: "networking", label: "Network Labs", meta: "Lab notes", icon: "folder", view: { kind: "folder", id: "networking" } },
+      { id: "networking", label: "Cisco Networking Labs", meta: "IOS configuration and troubleshooting", icon: "folder", view: { kind: "folder", id: "networking" } },
       { id: "interests", label: "Interests", meta: "Personal interests", icon: "folder", view: { kind: "folder", id: "interests" } },
       { id: "contact", label: "Contact", meta: "Public links", icon: "folder", view: { kind: "folder", id: "contact" } },
     ],
@@ -585,6 +609,10 @@ function renderInlineMarkdown(value: string): ReactNode[] {
   });
 }
 
+function markdownHeadingId(value: string) {
+  return `journal-${value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+}
+
 function LearningLogMarkdown({ body }: { body: string }) {
   return (
     <div className="affan-os-log-body">
@@ -592,7 +620,10 @@ function LearningLogMarkdown({ body }: { body: string }) {
         const line = rawLine.trim();
         if (!line) return <span className="affan-os-log-space" aria-hidden="true" key={`space-${index}`} />;
         if (line.startsWith("### ")) return <h3 key={`h3-${index}`}>{renderInlineMarkdown(line.slice(4))}</h3>;
-        if (line.startsWith("## ")) return <h2 key={`h2-${index}`}>{renderInlineMarkdown(line.slice(3))}</h2>;
+        if (line.startsWith("## ")) {
+          const heading = line.slice(3);
+          return <h2 id={markdownHeadingId(heading)} key={`h2-${index}`}>{renderInlineMarkdown(heading)}</h2>;
+        }
         const checkbox = line.match(/^- \[([ xX])\]\s+(.*)$/);
         if (checkbox) return <p className="affan-os-log-check" key={`check-${index}`}><span aria-hidden="true">{checkbox[1].toLowerCase() === "x" ? "✓" : "○"}</span>{renderInlineMarkdown(checkbox[2])}</p>;
         if (line.startsWith("- ")) return <p className="affan-os-log-bullet" key={`bullet-${index}`}>{renderInlineMarkdown(line.slice(2))}</p>;
@@ -772,7 +803,7 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
         "Room controls: lights, cat, relic, signal, print, room, shutdown",
         "Quote names containing spaces. Arrow keys recall history and Tab completes commands.",
       ],
-      ls: ["Folders: Projects  Network Labs  Education  Experience  Interests  Contact  Inspiration  Learning Log  TryHackMe", "Files: About.txt  Skills.md  Resume.pdf"],
+      ls: ["Folders: Projects  Cisco Networking Labs  Education  Experience  Interests  Contact  Inspiration  Learning Log  TryHackMe", "Files: About.txt  Skills.md  Resume.pdf"],
       whoami: ["Affan Shaikh", "Networking and IT Security student · Ontario Tech · Expected April 2028"],
       status: ["AFFAN_OS online", "Current focus: secure communications, file integrity, networking, and a Proxmox home lab."],
       lights: ["Sending a colour override to the 3D room..."],
@@ -969,10 +1000,17 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
 
   const activeFolder = view?.kind === "folder" ? folders[view.id] : null;
   const activeDocument = view?.kind === "document" ? documents[view.id] : null;
+  const documentHeadings = activeDocument?.body
+    ? activeDocument.body.split("\n").map((line) => line.trim()).filter((line) => line.startsWith("## ")).map((line) => line.slice(3))
+    : [];
   const activeTitle = activeFolder?.title ?? activeDocument?.title ?? "AFFAN_OS";
   const previousView = history.at(-1);
   const documentParent = previousView?.kind === "folder" ? folders[previousView.id] : folders.home;
-  const sortedFolderItems = activeFolder ? [...activeFolder.items].sort((a, b) => iconOrder[a.icon] - iconOrder[b.icon] || a.label.localeCompare(b.label)) : [];
+  const sortedFolderItems = activeFolder
+    ? activeFolder.id === "projects"
+      ? activeFolder.items
+      : [...activeFolder.items].sort((a, b) => iconOrder[a.icon] - iconOrder[b.icon] || a.label.localeCompare(b.label))
+    : [];
 
   return (
     <section className="affan-os" role="application" aria-label="AFFAN_OS portfolio desktop" onKeyDown={handleKeyDown}>
@@ -1129,8 +1167,20 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
               <div className="affan-os-document-meta"><span>{activeDocument.type}</span><span>Read only</span></div>
               <h1>{activeDocument.title}</h1>
               <p className="affan-os-document-intro">{activeDocument.intro}</p>
+              {activeDocument.body && activeDocument.bullets && documentHeadings.length > 0 && (
+                <nav className="affan-os-document-toc" aria-label="Project journal sections">
+                  <span>Project journal · updated September 30, 2026</span>
+                  <div>{documentHeadings.map((heading) => <a href={`#${markdownHeadingId(heading)}`} key={heading}>{heading}</a>)}</div>
+                </nav>
+              )}
+              {activeDocument.body && activeDocument.bullets && (
+                <section className="affan-os-document-summary" aria-labelledby="document-summary-title">
+                  <h2 id="document-summary-title">At a glance</h2>
+                  <ul>{activeDocument.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+                </section>
+              )}
               {activeDocument.body && <LearningLogMarkdown body={activeDocument.body} />}
-              {activeDocument.bullets && <ul>{activeDocument.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
+              {!activeDocument.body && activeDocument.bullets && <ul>{activeDocument.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
               {activeDocument.links && <div className="affan-os-document-actions">{activeDocument.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer" key={link.href}>{link.label}<ExternalMark /></a>)}</div>}
             </div>
           )}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { journalSections, projectJournalBodies } from "../../project-journal-data";
 import CaseStudy from "../case-study";
 
 export const metadata: Metadata = {
@@ -10,8 +11,7 @@ const data = {
   index: "05",
   title: "P2P Messaging",
   label: "Secure communications · Collaborative work in progress",
-  summary:
-    "Ghayas Sher and I are building an educational Python prototype for direct communication between explicitly verified peers. Its local browser workspace combines identity protection, authenticated encryption, separate conversations, encrypted history, and defensive protocol limits without presenting an unaudited system as production ready.",
+  summary: "Ghayas Sher and I are building an educational Python prototype for direct communication between explicitly verified peers. Its local browser workspace combines identity protection, authenticated encryption, separate conversations, encrypted history, and defensive protocol limits without presenting an unaudited system as production ready.",
   facts: [
     ["Status", "Public work in progress"],
     ["Collaboration", "Affan Shaikh and Ghayas Sher"],
@@ -22,49 +22,8 @@ const data = {
     ["Verification", "75 automated tests"],
     ["Transport", "Direct TCP"],
   ] as Array<[string, string]>,
-  links: [
-    { label: "View public repository", href: "https://github.com/sil6428/P2P-messaging" },
-  ],
-  sections: [
-    {
-      title: "What the prototype does",
-      paragraphs: [
-        "Each device creates password-protected signing and key-exchange identities. Peers exchange self-signed public cards and verify their fingerprints through a separate trusted channel before messaging.",
-        "Messages and delivery acknowledgements use authenticated encryption and signatures. The receiver validates the intended recipient, sender key, timestamp, signature, ciphertext, and replay state before accepting content.",
-        "The local interface unlocks the device identity and history only for the running process. It organizes verified contacts into separate conversations with authenticated replies, search, local drafts, pinned, muted and archived views, and live peer-listener status.",
-      ],
-      bullets: [
-        "Verified contact book with explicit out-of-band fingerprint confirmation",
-        "Two-way chat and one-shot send/listen workflows",
-        "Local browser workspace with CSRF-protected mutations and HTTP-only same-site sessions",
-        "Authenticated replies, search, drafts, and pinned, muted, and archived conversation views",
-        "Encrypted local message history with authenticated metadata",
-        "Signed filename, size, and SHA-256 attachment references",
-        "Persistent replay rejection, frame limits, rate limits, and read timeouts",
-      ],
-    },
-    {
-      title: "Browser application layer",
-      paragraphs: [
-        "The browser workspace is not a mock screen placed over the command line. It uses the same identity, contact, message, replay, and history modules as the terminal workflow, then adds a session boundary for unlocking the local device and CSRF protection for state-changing requests.",
-        "Conversation state is separated by verified contact, while search, drafts, reply references, pinned, muted, and archived views make the prototype usable enough to exercise the security controls through normal messaging behavior rather than isolated function calls.",
-      ],
-    },
-    {
-      title: "How we verify it",
-      paragraphs: [
-        "The current 75-test suite covers local setup and unlock, CSRF enforcement, conversation controls, identity protection, encryption, signatures, recipient validation, replay persistence, replies, acknowledgements, verified contacts, local history, attachment references, rate limiting, malformed inputs, and end-to-end local delivery.",
-        "The repository also documents the protocol and threat model so that the implementation can be reviewed against explicit assumptions rather than a broad claim of security.",
-      ],
-    },
-    {
-      title: "Current limits",
-      paragraphs: [
-        "This is an educational prototype, not an audited messaging product. It does not currently provide forward secrecy, automatic key rotation, NAT traversal, multi-device synchronization, automatic file transfer, or independent security assurance.",
-        "Those limits remain visible because communicating what a security system cannot guarantee is part of building it responsibly.",
-      ],
-    },
-  ],
+  links: [{ label: "View public repository", href: "https://github.com/sil6428/P2P-messaging" }],
+  sections: journalSections(projectJournalBodies.secureMessaging),
   nextSlug: "/work/secure-file-transfer",
   nextTitle: "Secure File Transfer",
 };

@@ -1,16 +1,12 @@
 "use client";
 
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { Reflector } from "three/examples/jsm/objects/Reflector.js";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+import type { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { playSiteSfx } from "./site-sfx";
 
@@ -42,8 +38,8 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "Technology operations",
     label: "CO-FOUNDER / TECHNOLOGY OPERATIONS",
     title: "SSIK and Archtech",
-    summary: "Co-founding an IT consulting business, building its private intelligence platform, and managing Google Workspace and hosting for a developing nonprofit.",
-    details: ["SSIK co-founder", "Private platform", "110 tests", "Google Workspace"],
+    summary: "Two active technology roles: co-founding an IT and cybersecurity consulting practice while building its private research platform, and owning collaboration, hosting, and release operations for a developing nonprofit.",
+    details: ["SSIK co-founder", "12-stage private platform", "110 tests", "Workspace + hosting"],
     sections: [
       {
         heading: "SSIK co-founder",
@@ -51,10 +47,16 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
       },
       {
         heading: "Archtech operations",
-        body: "I set up the nonprofit's Google Workspace environment, coordinate the team building its website, and manage hosting and deployment. I support implementation while keeping the private source and internal material confidential.",
+        body: "For Archtech, I established the Google Workspace environment, organize the contributors building the website, and own the hosting and deployment path. That means keeping account ownership, release access, team handoffs, and the public deployment understandable instead of allowing the project to depend on one person's computer or an undocumented login.",
+      },
+      {
+        heading: "How I approach technical operations",
+        body: "I treat documentation, access boundaries, repeatable releases, and honest status reporting as part of the technical work. The website and internal material remain private while development is active, so the portfolio describes my responsibility and process without exposing confidential source or overstating what has launched.",
       },
     ],
     links: [
+      { label: "Read Archtech operations case study", href: "/work/archtech" },
+      { label: "Read SSIK case study", href: "/work/ssik" },
       { label: "Visit SSIK website", href: "https://sil6428.github.io/SSIK-website/index.html" },
       { label: "View SSIK website source", href: "https://github.com/sil6428/SSIK-website" },
     ],
@@ -66,19 +68,30 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "Integrity file",
     label: "SECURITY PROJECT / PYTHON",
     title: "File integrity monitor",
-    summary: "A command-line tool that builds trusted SHA-256 baselines and reports added, modified, deleted, and moved files.",
-    details: ["Python", "SHA-256", "45/45 changes", "7 tests"],
+    summary: "A dependency-free Python integrity application with a local review dashboard and automation-friendly CLI. It creates deterministic SHA-256 baselines and explains added, modified, deleted, moved, and unreadable files without uploading evidence.",
+    details: ["Integrity Desk + CLI", "SHA-256", "45/45 changes", "9 tests"],
     sections: [
       {
         heading: "What I built",
-        body: "The monitor scans a target directory, stores a deterministic JSON baseline, and compares later scans against it. It identifies content changes, additions, deletions, and likely moves without relying on file size alone.",
+        body: "The monitor walks readable regular files, skips symbolic links, hashes content with SHA-256, and stores a sorted JSON baseline that is stable enough to review or diff. Later scans compare inventories to report additions, deletions, same-size or different-size modifications, likely renames, and read errors instead of treating a changed timestamp as proof of tampering.",
+      },
+      {
+        heading: "Integrity Desk",
+        body: "The loopback-only browser workspace lets a reviewer choose the monitored root, baseline and report paths, apply exclusions, create a baseline, run a scan, and inspect evidence in separate added, modified, deleted, moved, and error views. It uses the same core and deterministic JSON as the CLI, keeps paths on the local computer, disables caching, and requires a random session token for write actions.",
       },
       {
         heading: "Validation",
-        body: "A controlled 500-file fixture detected 45 of 45 changes with zero scan errors. Seven automated tests cover tampering, additions, deletions, rename detection, and reporting behavior.",
+        body: "A controlled 500-file fixture detected all 45 expected events—20 modifications, 10 deletions, 10 additions, and 5 moves—with zero scan errors. Nine automated tests cover clean scans, exclusions, additions, deletions, rename inference, deterministic JSON, dashboard persistence, required paths, and same-size content tampering.",
+      },
+      {
+        heading: "Security boundary",
+        body: "This is evidence collection, not malware prevention or endpoint detection. An attacker who can replace both the monitored content and its baseline can defeat the comparison; user-space scans also cannot prove who changed a file. The repository therefore recommends protecting the baseline separately, restricting permissions, signing reports, and pairing the tool with centralized logging or endpoint monitoring.",
       },
     ],
-    links: [{ label: "View public repository", href: "https://github.com/sil6428/file-integrity-monitor" }],
+    links: [
+      { label: "Read complete case study", href: "/work/file-integrity-monitor" },
+      { label: "View public repository", href: "https://github.com/sil6428/file-integrity-monitor" },
+    ],
     cameraOffset: [0, 0.1, 3.05],
     targetOffset: [0, 0, 0],
   },
@@ -87,17 +100,25 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "Server rack",
     label: "CURRENT LAB",
     title: "Proxmox home lab",
-    summary: "I am turning older computers into a practical environment for virtualization, networking, storage, and self-hosted experiments.",
-    details: ["Hardware reuse", "Virtual machines", "Network services"],
+    summary: "A planned Proxmox environment that turns older computers into a controlled place for virtualization, segmented networking, storage, backups, service recovery, and self-hosted experiments.",
+    details: ["Hardware reuse", "Proxmox", "Isolated networks", "Recovery practice"],
     sections: [
       {
         heading: "The plan",
-        body: "Older computers become Proxmox nodes instead of e-waste. The lab gives me a place to create virtual machines, separate services, test networking changes, and rebuild systems without risking a daily-use computer.",
+        body: "Older computers become Proxmox nodes instead of e-waste. The goal is a separate environment where I can create and destroy virtual machines, isolate services, test addressing and firewall changes, practise snapshots and restores, and rebuild a failed service without risking the computer I use for school.",
       },
       {
         heading: "Current focus",
-        body: "I am planning storage, backups, addressing, remote access, and a clean network layout before moving important services onto the lab.",
+        body: "Before exposing a service, I am documenting the physical hardware, management addresses, storage layout, backup destination, network segments, administrative access, and recovery steps. That planning keeps the lab useful for learning without turning unfinished experiments into unmanaged internet-facing systems.",
       },
+      {
+        heading: "What the lab is for",
+        body: "The lab will connect networking coursework to operating systems and service administration: building Linux and Windows guests, observing traffic between segments, applying least-privilege access, collecting logs, reproducing faults, and comparing a clean recovery against an improvised fix.",
+      },
+    ],
+    links: [
+      { label: "Read Cisco networking lab record", href: "/work/cisco-networking-labs" },
+      { label: "Read complete home-lab notes", href: "/interests/home-lab" },
     ],
     cameraOffset: [0, 0.12, 2.7],
     targetOffset: [0, 1.88, 0.72],
@@ -107,18 +128,23 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "3D printer",
     label: "MAKING / DESIGN",
     title: "3D printing",
-    summary: "From digital models to finished props. In the room, a complete miniature black-and-white chess set prints layer by layer over three minutes.",
-    details: ["Live 03:00 print", "32 pieces", "Printed board", "Layer by layer"],
+    summary: "A fabrication workflow that begins with model preparation and slicing, continues through supports, tolerances, and printer tuning, and ends with assembly and finishing. The room demonstrates that process with a three-minute miniature chess-set print.",
+    details: ["Live 03:00 print", "32 generated pieces", "Slicing + supports", "Assembly + finishing"],
     sections: [
       {
         heading: "From file to object",
-        body: "I prepare models, choose print orientation, tune supports, slice parts, and troubleshoot failed layers. Larger props require separate pieces, careful joins, sanding, filler, and finishing.",
+        body: "I inspect geometry, choose an orientation that balances strength and surface quality, tune supports and layer height, check clearances, slice the part, and watch the first layers before committing to a long print. When a result fails, I change one variable at a time so the next attempt teaches me something instead of simply consuming more material.",
       },
       {
         heading: "Favourite builds",
-        body: "A full katana inspired by Elden Ring and Leon's hand cannon from Resident Evil taught me how much the final result depends on patient assembly after the printer stops.",
+        body: "A full katana inspired by Elden Ring and Leon's hand cannon from Resident Evil taught me that printing is only one stage. Large props need sensible part separation, alignment, reinforced joins, sanding, filler, primer, and patient finishing before separate plastic components read as one object.",
+      },
+      {
+        heading: "The room model",
+        body: "The portfolio printer is a generated mechanical assembly with a moving bed, gantry, extruder carriage, hotend, feed tube, filament spools, display, and a complete set of layered chess geometry. The animation intentionally exposes the manufacturing sequence instead of using a finished prop as static decoration.",
       },
     ],
+    links: [{ label: "Read complete 3D-printing notes", href: "/interests/3d-printing" }],
     cameraOffset: [0, 0.28, 3.05],
     targetOffset: [0, 1.28, 0.2],
   },
@@ -127,18 +153,23 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "Racket",
     label: "REGIONAL COMPETITOR",
     title: "Badminton",
-    summary: "Fast decisions, controlled movement, and the discipline to keep improving one rally at a time.",
-    details: ["Regional level", "Singles + doubles", "Still playing"],
+    summary: "Regional-level competition built habits around preparation, fast decisions, controlled movement, recovery after mistakes, and steady improvement rather than one dramatic result.",
+    details: ["Regional competition", "Singles + doubles", "Footwork + recovery", "Still playing"],
     sections: [
       {
         heading: "Regional competition",
-        body: "I competed at the regional level. Training made footwork, recovery, shot placement, and composure as important as speed.",
+        body: "I competed at the regional level in both singles and doubles. Training made split-step timing, efficient movement, recovery to base, shot selection, and reading an opponent as important as raw speed or power.",
       },
       {
         heading: "Why I keep playing",
-        body: "Every rally gives immediate feedback. I like the balance of technique, quick decisions, and the discipline of returning to the next point after a mistake.",
+        body: "Every rally produces immediate feedback. I enjoy the combination of technique and fast decisions, but the most useful habit is resetting after a bad point: recognize what failed, adjust if needed, and return attention to the next exchange instead of carrying the error forward.",
+      },
+      {
+        heading: "What transfers beyond the court",
+        body: "Badminton reinforces the same deliberate practice I use in technical work—repeat a weak movement, isolate why it breaks down, accept short-term mistakes, and measure improvement over many attempts rather than judging the entire process by one result.",
       },
     ],
+    links: [{ label: "Read complete badminton notes", href: "/interests/badminton" }],
     cameraOffset: [0, 0.08, 2.75],
     targetOffset: [0, -0.55, 0.08],
   },
@@ -147,18 +178,23 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "Books",
     label: "CURRENTLY READING",
     title: "Long-form fiction",
-    summary: "I read East Asian novels, Korean manhwa, and manga with dense worlds and patient character development.",
-    details: ["Lord of the Mysteries", "Reverend Insanity", "Worldbuilding"],
+    summary: "I read long-form East Asian web novels, Korean manhwa, and manga that reward attention through consistent rules, layered mysteries, strategic characters, and patient worldbuilding.",
+    details: ["Lord of the Mysteries", "Reverend Insanity", "Long-form fiction", "Worldbuilding"],
     sections: [
       {
         heading: "Current shelf",
-        body: "I am currently reading Lord of the Mysteries and Reverend Insanity. I tend to stay with long stories that let their settings, systems, and characters develop gradually.",
+        body: "I am currently reading Lord of the Mysteries and Reverend Insanity. Both are long enough to establish rules, institutions, history, and character motivations gradually, then use details introduced much earlier as meaningful constraints rather than disposable exposition.",
       },
       {
         heading: "What holds my attention",
-        body: "I enjoy strategic characters, consistent world rules, layered mysteries, and stories where earlier details become meaningful much later.",
+        body: "I enjoy strategic characters, consistent world rules, layered mysteries, and consequences that follow from earlier choices. A setting becomes more convincing when its systems place real limits on the characters and the solution has to respect those limits.",
+      },
+      {
+        heading: "Why long stories work for me",
+        body: "Long-form reading rewards memory and patience. It creates room for slow changes in relationships, competing interpretations of the same event, and payoffs that only work because the reader has lived with the world long enough to understand what is at stake.",
       },
     ],
+    links: [{ label: "Read complete reading notes", href: "/interests/reading" }],
     cameraOffset: [3.0, 0.25, 0],
     targetOffset: [0, 0.28, 0],
   },
@@ -167,19 +203,26 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "Camera",
     label: "PHOTOGRAPHY",
     title: "Frames I keep",
-    summary: "Photography gives me a reason to notice light, structure, and small moments outside technical work.",
-    details: ["Street details", "Architecture", "VSCO gallery"],
+    summary: "Photography is my practice in noticing: light, structure, repetition, texture, negative space, and small arrangements that disappear when I move too quickly.",
+    details: ["Street details", "Architecture", "Light + composition", "VSCO gallery"],
     sections: [
       {
         heading: "What I photograph",
-        body: "I look for street details, architecture, light, reflections, and small arrangements that are easy to pass without noticing.",
+        body: "I look for street details, architecture, shadows, reflections, repeated forms, and quiet scenes that are easy to pass without noticing. I am more interested in an ordinary place becoming visually specific than in forcing every image to look dramatic.",
       },
       {
         heading: "The process",
-        body: "Photography slows me down. Framing a scene makes me think about balance, negative space, colour, and what should stay outside the image.",
+        body: "Photography slows me down. Framing a scene means deciding where attention begins, which lines carry the eye, how colour and contrast divide the image, and what must stay outside the frame. Editing and sequencing then test whether separate images feel like part of the same point of view.",
+      },
+      {
+        heading: "Connection to design",
+        body: "The same attention affects my interfaces and this room: hierarchy should be visible without explanation, empty space should be intentional, and an accent is strongest when it guides attention instead of competing with every other element.",
       },
     ],
-    links: [{ label: "View VSCO gallery", href: "https://sy1len.vsco.site" }],
+    links: [
+      { label: "Read complete photography notes", href: "/interests/photography" },
+      { label: "View VSCO gallery", href: "https://sy1len.vsco.site" },
+    ],
     cameraOffset: [3.0, 0.18, 0],
     targetOffset: [0, 0, 0.08],
   },
@@ -188,20 +231,24 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "About file",
     label: "PROFILE / 2028",
     title: "About Affan",
-    summary: "Cybersecurity student at Ontario Tech, SSIK co-founder, nonprofit technology coordinator, and someone who learns best by building.",
-    details: ["Networking + security", "SSIK co-founder", "Ontario Tech 2028", "Oshawa"],
+    summary: "Ontario Tech Networking and IT Security student, SSIK co-founder, nonprofit technical-operations contributor, and hands-on builder focused on networks, secure local tools, and clearly documented system boundaries.",
+    details: ["Ontario Tech 2028", "Cisco networking", "Security applications", "Oshawa, Ontario"],
     sections: [
       {
         heading: "Education",
-        body: "I study Networking and IT Security at Ontario Tech University and expect to graduate in April 2028. My work spans network design, routing, system security, Python, TypeScript, and interactive development.",
+        body: "I am completing a Bachelor of Information Technology (Honours) in Networking and IT Security at Ontario Tech University and expect to graduate in April 2028. My coursework and labs connect IPv4 and IPv6 design, routing, switching, network services, packet analysis, operating systems, programming, cryptography, cybercrime, and security controls.",
       },
       {
         heading: "Experience",
-        body: "I co-founded SSIK with Ontario Tech classmate Ghayas Sher, share its consulting and security responsibilities, and independently built its public website. I also work in customer-facing retail, volunteer at community events, and coordinate Google Workspace and website operations for a developing nonprofit. Those roles strengthened my communication, troubleshooting, planning, and ability to explain technical choices clearly.",
+        body: "I co-founded SSIK with Ontario Tech classmate Ghayas Sher, share its consulting, security-assessment, privacy-research, and stakeholder responsibilities, and independently built its public website and private internal platform. For Archtech, I established Google Workspace and coordinate website hosting and deployment. Customer-facing employment and more than 430 volunteer hours add practice in communication, accuracy, conflict resolution, and operating calmly when many people need help at once.",
+      },
+      {
+        heading: "How I learn",
+        body: "I learn best when an idea has to survive implementation. Cisco labs make routing and switching observable; security projects make identity, access control, encryption, integrity, replay protection, and failure handling concrete; interface work forces the underlying system to remain understandable to someone who did not write it.",
       },
       {
         heading: "Current direction",
-        body: "I am studying toward CompTIA Security+, expanding my home lab, and building projects where privacy and reliable infrastructure are requirements from the start.",
+        body: "I am preparing for CompTIA Security+, expanding a Proxmox home lab, deepening Cisco networking work, and looking for co-op opportunities where I can support real infrastructure while continuing to learn. I am especially interested in network operations, security operations, systems administration, cloud and infrastructure security, and security-focused software work.",
       },
     ],
     links: [
@@ -218,12 +265,16 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "Contact file",
     label: "CONTACTS / PUBLIC LINKS",
     title: "Contact Affan",
-    summary: "The public places where you can reach me or follow my current work.",
-    details: ["Email", "LinkedIn", "GitHub", "Phone"],
+    summary: "Public contact paths for co-op opportunities, technical conversations, collaboration, and questions about the projects documented throughout this portfolio.",
+    details: ["Email", "LinkedIn", "GitHub", "Resume"],
     sections: [
       {
         heading: "Best way to reach me",
-        body: "Email or LinkedIn works best for project questions, collaboration, and opportunities. My GitHub contains the public source and learning history behind this portfolio.",
+        body: "Email or LinkedIn works best for co-op opportunities, project questions, collaboration, and professional introductions. GitHub contains the public source, release history, test evidence, and documentation behind the portfolio projects that can be shared openly.",
+      },
+      {
+        heading: "What is public",
+        body: "The portfolio separates public evidence from confidential work. Public repositories are linked directly; private projects are described through architecture, verification, and limitations without exposing source, credentials, customer information, or internal organization material.",
       },
     ],
     links: [
@@ -239,12 +290,16 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "Resume file",
     label: "DOCUMENT / PDF",
     title: "Resume",
-    summary: "My current secure communications, file-integrity, networking, co-founder, technical-operations, and education resume.",
-    details: ["Ontario Tech 2028", "Cybersecurity", "SSIK co-founder", "Technical operations"],
+    summary: "A one-page, ATS-readable technical resume led by applied Cisco networking labs and supported by secure communications, authenticated transfer, file-integrity monitoring, extension development, co-founder work, and nonprofit technical operations.",
+    details: ["One page", "ATS-readable", "Cisco labs first", "Updated Sep. 2026"],
     sections: [
       {
         heading: "Current direction",
-        body: "The resume covers my secure messaging, secure transfer, and file-integrity projects, networking skills, SSIK co-founder work, nonprofit technology operations, customer-facing experience, and community volunteering.",
+        body: "The current version prioritizes Cisco routing, switching, addressing, services, and troubleshooting because those labs are my closest repeated simulation of day-to-day infrastructure work. Selected projects then demonstrate verified peer messaging, authenticated TLS transfer, deterministic integrity evidence, and a local-first Canvas extension.",
+      },
+      {
+        heading: "Evidence behind the page",
+        body: "The short bullets are backed by this portfolio's longer case studies, public repositories where appropriate, automated tests, controlled benchmarks, learning-log entries, and honest limitation statements. The PDF remains single-column and text-extractable so an applicant-tracking system and a human reader can follow the same structure.",
       },
     ],
     links: [{ label: "Open resume PDF", href: "/Affan_Shaikh_Resume.pdf?v=2026-09-20-relay" }],
@@ -346,6 +401,14 @@ export default function InteractiveRoom() {
   const previewRef = useRef<(key: string | null) => void>(() => undefined);
   const activeEntry = activeKey ? ROOM_ENTRIES[activeKey] : null;
   const desktopActive = activeKey === "__desktop";
+  const runPointerAction = (event: ReactPointerEvent<HTMLButtonElement>, action: () => void) => {
+    event.preventDefault();
+    event.stopPropagation();
+    action();
+  };
+  const runKeyboardClickAction = (event: ReactMouseEvent<HTMLButtonElement>, action: () => void) => {
+    if (event.detail === 0) action();
+  };
 
   useEffect(() => {
     let frame = 0;
@@ -402,20 +465,25 @@ export default function InteractiveRoom() {
     renderer.domElement.dataset.renderQuality = highDetail ? "high" : "balanced";
     host.appendChild(renderer.domElement);
 
-    // Bloom lets the room's existing neon accent materials (rack LEDs, topology
-    // links, monitor glow, signal motes) actually glow instead of rendering as
-    // flat bright color. Reserved for the high-detail tier since it adds a full
-    // extra offscreen blur pass per frame.
+    // Bloom is loaded after the first scene frame instead of being bundled into
+    // the critical room path. The room is immediately usable with the standard
+    // renderer; capable devices gain the restrained glow as an enhancement.
     let composer: EffectComposer | null = null;
-    let bloomPass: UnrealBloomPass | null = null;
-    let outputPass: OutputPass | null = null;
     if (highDetail) {
-      composer = new EffectComposer(renderer);
-      composer.addPass(new RenderPass(scene, camera));
-      bloomPass = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.22, 0.22, 2.2);
-      composer.addPass(bloomPass);
-      outputPass = new OutputPass();
-      composer.addPass(outputPass);
+      Promise.all([
+        import("three/examples/jsm/postprocessing/EffectComposer.js"),
+        import("three/examples/jsm/postprocessing/RenderPass.js"),
+        import("three/examples/jsm/postprocessing/UnrealBloomPass.js"),
+        import("three/examples/jsm/postprocessing/OutputPass.js"),
+      ]).then(([{ EffectComposer }, { RenderPass }, { UnrealBloomPass }, { OutputPass }]) => {
+        if (roomDisposed) return;
+        const nextComposer = new EffectComposer(renderer);
+        nextComposer.addPass(new RenderPass(scene, camera));
+        nextComposer.addPass(new UnrealBloomPass(new THREE.Vector2(1, 1), 0.22, 0.22, 2.2));
+        nextComposer.addPass(new OutputPass());
+        nextComposer.setSize(host.clientWidth, host.clientHeight);
+        composer = nextComposer;
+      }).catch((error) => console.warn("Unable to enable the optional bloom pass", error));
     }
 
     const pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -648,7 +716,8 @@ export default function InteractiveRoom() {
       return group;
     };
 
-    const gltfLoader = new GLTFLoader();
+    const gltfLoaderPromise = import("three/examples/jsm/loaders/GLTFLoader.js")
+      .then(({ GLTFLoader }) => new GLTFLoader());
     let roomDisposed = false;
     const disposeLoadedRoot = (root: THREE.Object3D) => {
       root.traverse((object) => {
@@ -676,7 +745,7 @@ export default function InteractiveRoom() {
       },
       onReady?: (model: THREE.Object3D) => void,
     ) => {
-      gltfLoader.load(
+      const beginLoad = () => gltfLoaderPromise.then((gltfLoader) => gltfLoader.load(
         url,
         ({ scene: model }) => {
           if (roomDisposed) {
@@ -735,7 +804,12 @@ export default function InteractiveRoom() {
         },
         undefined,
         (error) => console.warn(`Unable to load studio asset: ${url}`, error),
-      );
+      ));
+      const idleWindow = window as Window & {
+        requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+      };
+      if (idleWindow.requestIdleCallback) idleWindow.requestIdleCallback(beginLoad, { timeout: 1400 });
+      else window.setTimeout(beginLoad, 160);
     };
 
     const floor = new THREE.Mesh(
@@ -3626,8 +3700,6 @@ export default function InteractiveRoom() {
       if (Array.isArray(reflectiveBoundaryTintMaterial)) reflectiveBoundaryTintMaterial.forEach((surface) => surface.dispose());
       else reflectiveBoundaryTintMaterial.dispose();
       environmentRenderTarget.dispose();
-      bloomPass?.dispose();
-      outputPass?.dispose();
       composer?.dispose();
       renderer.dispose();
       renderer.domElement.remove();
@@ -3657,7 +3729,8 @@ export default function InteractiveRoom() {
             type="button"
             aria-expanded={directoryOpen}
             aria-controls="room-index-panel"
-            onClick={() => setDirectoryOpen((current) => !current)}
+            onPointerUp={(event) => runPointerAction(event, () => setDirectoryOpen((current) => !current))}
+            onClick={(event) => runKeyboardClickAction(event, () => setDirectoryOpen((current) => !current))}
           >
             INDEX <span>{DIRECTORY.length + 1}</span>
           </button>
@@ -3679,7 +3752,8 @@ export default function InteractiveRoom() {
           onMouseLeave={() => previewRef.current(null)}
           onFocus={() => previewRef.current("__desktop")}
           onBlur={() => previewRef.current(null)}
-          onClick={() => focusRef.current("__desktop")}
+          onPointerUp={(event) => runPointerAction(event, () => focusRef.current("__desktop"))}
+          onClick={(event) => runKeyboardClickAction(event, () => focusRef.current("__desktop"))}
         >
           <span>00</span><i />Computer
         </button>
@@ -3692,7 +3766,8 @@ export default function InteractiveRoom() {
             onMouseLeave={() => previewRef.current(null)}
             onFocus={() => previewRef.current(key)}
             onBlur={() => previewRef.current(null)}
-            onClick={() => focusRef.current(key)}
+            onPointerUp={(event) => runPointerAction(event, () => focusRef.current(key))}
+            onClick={(event) => runKeyboardClickAction(event, () => focusRef.current(key))}
             key={key}
           >
             <span>{entry.number}</span><i />{entry.title}
@@ -3721,13 +3796,18 @@ export default function InteractiveRoom() {
       </div>
       {roomSecret && <div className="room-secret-toast" role="status">{roomSecret}</div>}
       <nav id="room-index-panel" className="room-index-panel" aria-label="3D room objects" hidden={!directoryOpen}>
-        <button type="button" onClick={() => { setDirectoryOpen(false); focusRef.current("__desktop"); }}>
+        <button
+          type="button"
+          onPointerUp={(event) => runPointerAction(event, () => { setDirectoryOpen(false); focusRef.current("__desktop"); })}
+          onClick={(event) => runKeyboardClickAction(event, () => { setDirectoryOpen(false); focusRef.current("__desktop"); })}
+        >
           <span>00</span> Power on computer desktop
         </button>
         {DIRECTORY.map(([key, entry]) => (
           <button
             type="button"
-            onClick={() => { setDirectoryOpen(false); focusRef.current(key); }}
+            onPointerUp={(event) => runPointerAction(event, () => { setDirectoryOpen(false); focusRef.current(key); })}
+            onClick={(event) => runKeyboardClickAction(event, () => { setDirectoryOpen(false); focusRef.current(key); })}
             key={key}
           >
             <span>{entry.number}</span> {entry.directory}

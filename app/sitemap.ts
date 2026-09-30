@@ -18,5 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/work/otnow`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/work/p2p-messaging`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/work/secure-file-transfer`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/work/cisco-networking-labs`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/work/portfolio`, changeFrequency: "monthly", priority: 0.8 },
   ];
 }

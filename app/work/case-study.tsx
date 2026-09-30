@@ -23,6 +23,10 @@ function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
+function sectionId(title: string) {
+  return `section-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+}
+
 export default function CaseStudy({ data }: { data: CaseStudyData }) {
   return (
     <main>
@@ -66,6 +70,15 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
           </div>
         </header>
 
+        <nav className="case-toc" aria-label="On this page">
+          <span>Project journal · updated September 30, 2026</span>
+          <div>
+            {data.sections.map((section) => (
+              <a href={`#${sectionId(section.title)}`} key={section.title}>{section.title}</a>
+            ))}
+          </div>
+        </nav>
+
         {data.image && data.imageAlt && (
           <figure className="case-cover">
             {/* Static project captures are served directly because this deployment does not use an image-optimization service. */}
@@ -94,7 +107,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
 
           <div className="case-content">
             {data.sections.map((section) => (
-              <section key={section.title}>
+              <section id={sectionId(section.title)} key={section.title}>
                 <h2>{section.title}</h2>
                 {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 {section.bullets && (

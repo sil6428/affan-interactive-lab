@@ -28,7 +28,7 @@ export default function InterestDetail({ data }: { data: InterestDetailData }) {
       <header className="site-header">
         <Link className="identity" href="/" aria-label="Affan Shaikh home">
           <strong>Affan Shaikh</strong>
-          <span>Student studying cybersecurity</span>
+          <span>Networking and IT Security student</span>
         </Link>
         <p className="sidebar-location"><span>Location</span>Oshawa, Ontario</p>
         <nav className="nav-pill" aria-label="Primary navigation">
