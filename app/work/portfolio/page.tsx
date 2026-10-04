@@ -18,7 +18,7 @@ const data = {
     ["Build", "Vinext + Vite"],
     ["Hosting", "Cloudflare Pages"],
     ["Interfaces", "3D room + AFFAN_OS + standard pages"],
-    ["Verification", "Lint, production build, rendered-output tests"],
+    ["Delivery", "Cloudflare Pages + permanent legacy redirects"],
     ["Accessibility", "Object index, semantic pages, reduced-motion handling"],
     ["Repository", "Public"],
   ] as Array<[string, string]>,

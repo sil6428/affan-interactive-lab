@@ -133,7 +133,7 @@ OTNow uses the student's existing authenticated Canvas session. A tightly scoped
 
 ## Privacy and permission decisions
 
-The extension does not request a Canvas password and does not send course data to a separate OTNow server. Planner data and preferences remain in Chrome's local storage. There is no telemetry, advertising identifier, tracking pixel, or OTNow user account.
+The extension does not request a Canvas password and does not send course names, assignment names, links, grades, or other coursework to a separate OTNow server. Planner data and preferences remain in Chrome's local storage. Optional anonymous statistics are off by default and require explicit consent; when enabled, they share only broad numerical totals rather than coursework or identity data. There is no advertising identifier, tracking pixel, or OTNow user account.
 
 Permissions are limited to what the side panel and Ontario Tech Canvas bridge need. The repository documents why each permission exists so Chrome Web Store disclosures and the implementation can be compared directly.
 
@@ -149,9 +149,9 @@ The extension can compare its installed version with the public repository relea
 
 ## Verification and limits
 
-Twelve unit tests and a release-package check currently validate the core normalization, grouping, settings, and packaging behavior. I also tested installation, the authenticated Ontario Tech session bridge, first synchronization, and side-panel rendering against the live Canvas environment.
+Automated coverage and release-package checks validate the core normalization, grouping, settings, privacy controls, and packaging behavior. I also tested installation, the authenticated Ontario Tech session bridge, first synchronization, and side-panel rendering against the live Canvas environment.
 
-Broader testing with consenting students and Chrome Web Store review remain external milestones. The project does not claim a store listing, university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
+Version 1.5.0 has been submitted for Chrome Web Store review. The opt-in public dashboard has recorded 200+ privacy-rounded Canvas items organized from fewer than five reporting installations as of October 4, 2026. Those numbers describe voluntary reporting activity, not total users or proof of learning outcomes. The project does not claim store approval, university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
 
 ## Lessons and roadmap
 

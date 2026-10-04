@@ -80,7 +80,7 @@ test("renders SSIK's shared co-founder responsibilities and Affan's additional w
   assert.match(html, /share SSIK's co-founder, consulting, security-assessment, privacy-research, and stakeholder-communication responsibilities/i);
   assert.match(html, /In addition to that shared work/i);
   assert.match(html, /12-stage local V1/i);
-  assert.match(html, /110 passing tests/i);
+  assert.match(html, /12 local research and review stages/i);
   assert.match(html, /outbound delivery remains disabled/i);
   assert.match(html, /sil6428\.github\.io\/SSIK-website/);
 });
@@ -91,7 +91,8 @@ test("renders the public secure-communications case studies", async () => {
   const p2p = await p2pResponse.text();
   assert.match(p2p, /P2P Messaging/);
   assert.match(p2p, /Ghayas Sher/);
-  assert.match(p2p, /75 automated tests/);
+  assert.match(p2p, /64 KiB frames/);
+  assert.match(p2p, /4 KiB plaintext/);
   assert.match(p2p, /forward secrecy/);
   assert.match(p2p, /github\.com\/sil6428\/P2P-messaging/);
 
@@ -101,7 +102,7 @@ test("renders the public secure-communications case studies", async () => {
   assert.match(transfer, /Secure File Transfer/);
   assert.match(transfer, /Private source/);
   assert.match(transfer, /13,632,512 bytes/);
-  assert.match(transfer, /16 automated tests/);
+  assert.match(transfer, /8 verified round trips/);
   assert.match(transfer, /Transfer Desk/);
   assert.doesNotMatch(transfer, /github\.com\/sil6428\/secure-file-transfer/);
 });
@@ -112,7 +113,7 @@ test("renders the measured integrity and OTNow case studies", async () => {
   const integrity = await integrityResponse.text();
   assert.match(integrity, /45 of 45 detected/);
   assert.match(integrity, /500 files/);
-  assert.match(integrity, /nine passing automated tests/i);
+  assert.match(integrity, /zero scan errors/i);
   assert.match(integrity, /Integrity Desk/);
   assert.match(integrity, /github\.com\/sil6428\/file-integrity-monitor/);
 
@@ -120,8 +121,8 @@ test("renders the measured integrity and OTNow case studies", async () => {
   assert.equal(otnowResponse.status, 200);
   const otnow = await otnowResponse.text();
   assert.match(otnow, /Two read-only Canvas endpoints/);
-  assert.match(otnow, /12 unit tests/);
-  assert.match(otnow, /does not claim a store listing/i);
+  assert.match(otnow, /200\+ privacy-rounded Canvas items organized/i);
+  assert.match(otnow, /Chrome Web Store review submitted/i);
   assert.match(otnow, /github\.com\/sil6428\/OTNow/);
 });
 
@@ -140,7 +141,7 @@ test("renders the networking and portfolio build journals", async () => {
   assert.match(portfolio, /Interactive Portfolio/);
   assert.match(portfolio, /AFFAN_OS/);
   assert.match(portfolio, /Performance strategy/);
-  assert.match(portfolio, /rendered-output tests/);
+  assert.match(portfolio, /permanent legacy redirects/);
   assert.match(portfolio, /Lessons and ongoing record/);
 });
 
@@ -660,24 +661,24 @@ test("includes the device-local soundtrack and hidden terminal", async () => {
   assert.match(desktopOs, /SSIK Consulting\.project/);
   assert.match(desktopOs, /Ghayas Sher/);
   assert.match(desktopOs, /private, local-first SSIK Intelligence V1 platform/);
-  assert.match(desktopOs, /110 passing tests/);
+  assert.match(desktopOs, /12-stage private internal platform/);
   assert.match(desktopOs, /sil6428\.github\.io\/SSIK-website/);
   assert.match(desktopOs, /File Integrity Monitor\.py/);
   assert.match(desktopOs, /github\.com\/sil6428\/file-integrity-monitor/);
   assert.match(desktopOs, /OTNow\.extension/);
   assert.match(desktopOs, /github\.com\/sil6428\/OTNow/);
   assert.match(desktopOs, /Secure File Transfer\.py/);
-  assert.match(desktopOs, /16 automated tests/);
+  assert.match(desktopOs, /eight upload\/download round trips/i);
   assert.match(desktopOs, /P2P Messaging\.project/);
   assert.match(desktopOs, /local browser workspace/);
-  assert.match(desktopOs, /75 automated tests/);
+  assert.match(desktopOs, /64 KiB frame/i);
   assert.match(desktopOs, /github\.com\/sil6428\/P2P-messaging/);
   assert.match(desktopOs, /unaudited work in progress/);
   assert.doesNotMatch(desktopOs, /github\.com\/sil6428\/secure-file-transfer/);
   assert.doesNotMatch(desktopOs, /github\.com\/sil6428\/secure-messaging-platform/);
   assert.match(desktopOs, /Event Planner\.js/);
   assert.match(desktopOs, /Resume\.pdf/);
-  assert.match(desktopOs, /Affan_Shaikh_Resume\.pdf\?v=2026-09-28-otnow#view=FitH/);
+  assert.match(desktopOs, /Affan_Shaikh_Resume\.pdf\?v=2026-10-04-outcomes#view=FitH/);
   assert.match(desktopOs, /Affan Shaikh resume PDF/);
   assert.match(desktopOs, /Ontario Tech\.txt/);
   assert.match(desktopOs, /Security\+\.plan/);

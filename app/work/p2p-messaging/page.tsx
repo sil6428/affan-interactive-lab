@@ -4,7 +4,7 @@ import CaseStudy from "../case-study";
 
 export const metadata: Metadata = {
   title: "P2P Messaging | Affan Shaikh",
-  description: "A collaborative Python messaging prototype with a local browser interface, verified peer identities, authenticated encryption, replay protection, and 75 automated tests.",
+  description: "A collaborative Python messaging prototype with a local browser interface, verified peer identities, authenticated encryption, persistent replay protection, and explicit protocol limits.",
 };
 
 const data = {
@@ -19,7 +19,7 @@ const data = {
     ["Identity", "Ed25519 and X25519"],
     ["Encryption", "ChaCha20-Poly1305"],
     ["Interface", "Local FastAPI browser workspace"],
-    ["Verification", "75 automated tests"],
+    ["Protocol limits", "64 KiB frames · 4 KiB plaintext"],
     ["Transport", "Direct TCP"],
   ] as Array<[string, string]>,
   links: [{ label: "View public repository", href: "https://github.com/sil6428/P2P-messaging" }],

@@ -238,7 +238,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
     bullets: [
       "Build and troubleshoot routed and switched Cisco lab environments using IPv4/IPv6 plans, VLANs, trunks, network services, routing protocols, IOS verification commands, and packet-level evidence",
       "Develop security tools with usable local interfaces, shared CLI/core logic, automated tests, controlled benchmarks, and explicit statements about what each control can and cannot guarantee",
-      "Co-founded SSIK IT Consulting & Solutions, share its consulting and security responsibilities, and independently built its public website and 110-test private internal platform",
+      "Co-founded SSIK IT Consulting & Solutions, share its consulting and security responsibilities, and independently built its nine-page public website and 12-stage private internal platform",
       "Manage nonprofit collaboration infrastructure, account ownership, website-team coordination, hosting, deployment, and release verification for Archtech",
       "Bring the same iterative approach to a Proxmox home lab, 3D printing, regional badminton experience, long-form reading, and photography",
     ],
@@ -267,7 +267,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Share privacy and regulatory research and translate findings into clear stakeholder recommendations",
       "Built a 12-stage internal workflow for passive research, evidence review, approvals, rescans, and recovery",
       "Implemented multi-workspace RBAC, durable jobs, SSRF defenses, audit history, and bounded runtime controls",
-      "Verified the private platform with 110 passing tests plus lint, type, migration, integrity, and secret checks",
+      "Delivered the 12-stage private workflow with lint, type, migration, integrity, and secret controls",
       "Built the complete public front end and responsive website",
       "Maintain the GitHub Pages deployment",
     ],
@@ -302,8 +302,8 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Uses the student's existing Ontario Tech Canvas session and limits the bridge to two read-only Canvas endpoints",
       "Groups assignments, quizzes, discussions, events, planner notes, and other dated work by course, type, or due-date range",
       "Adds moved-deadline detection, local reminders, course shortcuts, offline cache, and light, dark, or system appearance",
-      "Stores course data and preferences only in local Chrome storage with no telemetry, ads, or OTNow account",
-      "Passed 12 unit tests and a release-package check; the Chrome Web Store package and disclosures are prepared for external submission",
+      "Keeps coursework in local Chrome storage; optional anonymous numerical totals are off by default and never include course or assignment details",
+      "Submitted version 1.5.0 for Chrome Web Store review; the opt-in public dashboard has recorded 200+ privacy-rounded Canvas items organized",
     ],
     body: projectJournalBodies.otnow,
     links: [
@@ -321,7 +321,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Resumes uploads and downloads from verified byte offsets and restricts files to recipient-scoped storage",
       "Re-hashes stored files before download, verifies the receiver's final SHA-256 digest, and quarantines mismatches",
       "Verified 8 upload/download round trips totaling 13,632,512 bytes and resumed a 2,097,152-byte upload after a 700,000-byte interruption",
-      "Passed 16 automated tests covering authentication, throttling, isolation, traversal attempts, interruption, tampering, quarantine, dashboard setup, and password-safe audit logging",
+      "Verified eight upload/download round trips totaling 13,632,512 bytes and resumed a 2 MiB upload from the exact 700,000-byte server offset",
     ],
     body: projectJournalBodies.secureFileTransfer,
   },
@@ -335,7 +335,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Adds a verified contact book, two-way chat, encrypted local history with authenticated metadata, and signed filename/size/SHA-256 attachment references",
       "Adds local device unlock, HTTP-only sessions, CSRF-protected mutations, authenticated replies, search, drafts, and pinned, muted, and archived conversation views",
       "Enforces 64 KiB frame and 4 KiB plaintext limits, recipient and expiry checks, persistent replay rejection, post-authentication rate limits, and connection read timeouts",
-      "Passed 75 automated tests covering browser authentication, CSRF, conversation controls, adversarial parsing, tampering, spoofing, metadata integrity, attachment verification, replay attempts, acknowledgements, and end-to-end delivery",
+      "Enforces 64 KiB frame and 4 KiB plaintext limits, persists replay rejection, and covers adversarial parsing, tampering, spoofing, metadata integrity, attachment verification, and acknowledgements",
       "Does not claim forward secrecy, NAT traversal, automatic file transfer or quarantine, multi-device support, independent security review, or production readiness",
     ],
     body: projectJournalBodies.secureMessaging,
@@ -352,7 +352,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Binds the dashboard to the local computer, uses a per-session request token, and serves only bundled interface content",
       "Detected 45 of 45 controlled filesystem changes across 500 fixture files",
       "Covered 20 modifications, 10 deletions, 10 additions, and 5 moves with zero scan errors",
-      "Passed 9 automated tests, including same-size content tampering, rename inference, saved dashboard evidence, and required-path validation",
+      "Detected all 45 controlled changes across 500 fixture files with zero scan errors, including same-size content tampering and move inference",
       "Uses only the Python standard library and documents why the baseline and execution environment still need separate protection",
     ],
     body: projectJournalBodies.fileIntegrityMonitor,
@@ -381,19 +381,19 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Networking · Configured IPv4 and IPv6 addressing, subnetting, VLANs, access ports, 802.1Q trunks, DHCP, DNS, NAT, STP, and inter-VLAN routing in Cisco IOS and Packet Tracer labs",
       "Troubleshooting · Used ping, traceroute, show commands, Wireshark, packet captures, routing tables, and interface state to isolate connectivity and configuration problems",
       "Cybersecurity · Applied authentication, authorization, role-based access control, encryption, hashing, and vulnerability analysis through security coursework and personal projects",
-      "Secure messaging · Co-developed a local browser workspace with verified peer contacts, encrypted and signed direct messaging, authenticated replies, encrypted history, attachment-reference checks, replay protection, and transport limits in a 75-test collaborative prototype",
-      "Secure transfer · Built authenticated TLS transfers with certificate and hostname verification, resumable byte offsets, recipient isolation, SHA-256 re-hashing, mismatch quarantine, a loopback Transfer Desk interface, and 16 automated tests",
-      "Python · Built a SHA-256 file integrity monitor with deterministic baselines, JSON reports, five evidence categories, script-friendly exit codes, a loopback Integrity Desk interface, and 9 automated tests",
+      "Secure messaging · Co-developed a local browser workspace with verified peer contacts, encrypted and signed direct messaging, authenticated replies, encrypted history, attachment-reference checks, persistent replay rejection, 64 KiB frames, and 4 KiB plaintext limits",
+      "Secure transfer · Built authenticated TLS transfers with certificate and hostname verification, resumable byte offsets, recipient isolation, SHA-256 re-hashing, mismatch quarantine, and a loopback Transfer Desk; eight verified round trips moved 13,632,512 bytes",
+      "Python · Built a SHA-256 file integrity monitor with deterministic baselines, JSON reports, five evidence categories, script-friendly exit codes, and a loopback Integrity Desk that detected 45 of 45 controlled changes across 500 fixtures with zero scan errors",
       "JavaScript and DOM · Built an event-planning tool that adds, edits, displays, and removes events while keeping the page state synchronized",
       "TypeScript and React · Built AFFAN_OS, the portfolio interface, reusable components, window state, keyboard interactions, and accessible controls",
-      "Browser extensions · Built OTNow as a local-first Manifest V3 Canvas companion with allowlisted reads, deadline reconciliation, reminders, offline cache, and 12 unit tests",
+      "Browser extensions · Built OTNow as a local-first Manifest V3 Canvas companion with allowlisted reads, deadline reconciliation, reminders, offline cache, a Chrome Web Store review submission, and 200+ privacy-rounded items organized",
       "Three.js · Built the interactive cyber lab, procedural room models, material systems, raycast selection, camera transitions, printer animation, and separate touch controls",
       "Next.js and CSS · Built responsive routes, project case studies, mobile layouts, metadata, custom illustrations, and the desktop-style file environment",
       "Cloudflare Pages · Built and repeatedly deployed this portfolio, then verified live deployments and public routes",
       "Git and GitHub · Managed private team development, backup branches, documentation, version history, tests, and public portfolio source",
       "Linux and virtualization · Use Linux tools in coursework and personal systems work while converting older computers into a Proxmox home lab for virtual machines and isolated networks",
       "Google Workspace and web operations · Set up a nonprofit's Workspace environment, coordinate its website team, and own the website hosting and deployment workflow",
-      "IT consulting and platform delivery · Co-founded SSIK with an Ontario Tech classmate, share security-assessment and privacy-research responsibilities, independently built the public website, and delivered a private local-first research platform with 110 passing tests",
+      "IT consulting and platform delivery · Co-founded SSIK with an Ontario Tech classmate, share security-assessment and privacy-research responsibilities, independently built the nine-page public website, and delivered a private 12-stage local-first research workflow",
       "Systems tools · Worked with Windows Server, Cisco Packet Tracer, Wireshark, SecureCRT, and GitHub across labs and projects",
       "Communication and operations · Applied customer support, transaction accuracy, crowd flow, event coordination, conflict resolution, and team communication through paid and volunteer experience",
     ],
@@ -1133,10 +1133,10 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
             <div className="affan-os-resume-viewer">
               <nav aria-label="Resume controls">
                 <div><strong>Affan_Shaikh_Resume.pdf</strong><span>1 page</span></div>
-                <a href="/Affan_Shaikh_Resume.pdf?v=2026-09-28-otnow" target="_blank" rel="noreferrer">Open full size <ExternalMark /></a>
-                <a href="/Affan_Shaikh_Resume.pdf?v=2026-09-28-otnow" download>Download PDF</a>
+                <a href="/Affan_Shaikh_Resume.pdf?v=2026-10-04-outcomes" target="_blank" rel="noreferrer">Open full size <ExternalMark /></a>
+                <a href="/Affan_Shaikh_Resume.pdf?v=2026-10-04-outcomes" download>Download PDF</a>
               </nav>
-              <iframe src="/Affan_Shaikh_Resume.pdf?v=2026-09-28-otnow#view=FitH&toolbar=0" title="Affan Shaikh resume PDF" />
+              <iframe src="/Affan_Shaikh_Resume.pdf?v=2026-10-04-outcomes#view=FitH&toolbar=0" title="Affan Shaikh resume PDF" />
             </div>
           )}
 

@@ -18,7 +18,7 @@ const data = {
     ["Co-founder", "Ghayas Sher, Ontario Tech classmate"],
     ["Website", "Nine public pages"],
     ["Internal platform", "12-stage local V1"],
-    ["Verification", "110 passing tests"],
+    ["Delivered workflow", "12 local research and review stages"],
     ["Hosting", "GitHub Pages"],
   ] as Array<[string, string]>,
   links: [

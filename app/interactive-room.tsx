@@ -39,11 +39,11 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     label: "CO-FOUNDER / TECHNOLOGY OPERATIONS",
     title: "SSIK and Archtech",
     summary: "Two active technology roles: co-founding an IT and cybersecurity consulting practice while building its private research platform, and owning collaboration, hosting, and release operations for a developing nonprofit.",
-    details: ["SSIK co-founder", "12-stage private platform", "110 tests", "Workspace + hosting"],
+    details: ["SSIK co-founder", "12-stage private platform", "Nine-page public site", "Workspace + hosting"],
     sections: [
       {
         heading: "SSIK co-founder",
-        body: "I co-founded SSIK IT Consulting & Solutions with Ghayas Sher, an Ontario Tech classmate. We share consulting, security assessment, privacy research, and stakeholder responsibilities. I independently built the public website and the private, local-first SSIK Intelligence platform. Its passive research, evidence review, role-based access, approval, rescan, and recovery workflows pass 110 tests.",
+        body: "I co-founded SSIK IT Consulting & Solutions with Ghayas Sher, an Ontario Tech classmate. We share consulting, security assessment, privacy research, and stakeholder responsibilities. I independently built the nine-page public website and the private, local-first SSIK Intelligence platform. Its 12-stage workflow connects passive research, evidence review, role-based access, approvals, rescans, export, and recovery.",
       },
       {
         heading: "Archtech operations",
@@ -69,7 +69,7 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     label: "SECURITY PROJECT / PYTHON",
     title: "File integrity monitor",
     summary: "A dependency-free Python integrity application with a local review dashboard and automation-friendly CLI. It creates deterministic SHA-256 baselines and explains added, modified, deleted, moved, and unreadable files without uploading evidence.",
-    details: ["Integrity Desk + CLI", "SHA-256", "45/45 changes", "9 tests"],
+    details: ["Integrity Desk + CLI", "SHA-256", "45/45 changes", "500 fixtures"],
     sections: [
       {
         heading: "What I built",
@@ -255,7 +255,7 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
       { label: "GitHub", href: "https://github.com/sil6428" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/sil6428" },
       { label: "Email", href: "mailto:ffaanshake@gmail.com" },
-      { label: "Resume", href: "/Affan_Shaikh_Resume.pdf?v=2026-09-20-relay" },
+      { label: "Resume", href: "/Affan_Shaikh_Resume.pdf?v=2026-10-04-outcomes" },
     ],
     cameraOffset: [0, 0.1, 3.05],
     targetOffset: [0, 0, 0],
@@ -302,7 +302,7 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
         body: "The short bullets are backed by this portfolio's longer case studies, public repositories where appropriate, automated tests, controlled benchmarks, learning-log entries, and honest limitation statements. The PDF remains single-column and text-extractable so an applicant-tracking system and a human reader can follow the same structure.",
       },
     ],
-    links: [{ label: "Open resume PDF", href: "/Affan_Shaikh_Resume.pdf?v=2026-09-20-relay" }],
+    links: [{ label: "Open resume PDF", href: "/Affan_Shaikh_Resume.pdf?v=2026-10-04-outcomes" }],
     cameraOffset: [0, 0.1, 3.05],
     targetOffset: [0, 0, 0],
   },

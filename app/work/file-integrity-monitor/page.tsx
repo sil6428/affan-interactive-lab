@@ -19,7 +19,7 @@ const data = {
     ["Evidence", "Deterministic JSON"],
     ["Fixture set", "500 files"],
     ["Controlled changes", "45 of 45 detected"],
-    ["Tests", "Nine passing"],
+    ["Validation", "45 of 45 changes · zero scan errors"],
     ["Repository", "Public"],
   ] as Array<[string, string]>,
   links: [{ label: "View public repository", href: "https://github.com/sil6428/file-integrity-monitor" }],

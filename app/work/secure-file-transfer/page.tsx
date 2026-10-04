@@ -4,7 +4,7 @@ import CaseStudy from "../case-study";
 
 export const metadata: Metadata = {
   title: "Secure File Transfer | Affan Shaikh",
-  description: "A private-source Python file-transfer application with a local browser workspace, authenticated TLS, recipient isolation, resumable transfers, SHA-256 verification, and 16 automated tests.",
+  description: "A private-source Python file-transfer application with a local browser workspace, authenticated TLS, recipient isolation, resumable transfers, SHA-256 verification, and measured recovery from interrupted uploads.",
 };
 
 const data = {
@@ -19,7 +19,7 @@ const data = {
     ["Transport", "Authenticated TLS"],
     ["Interface", "Transfer Desk browser workspace + CLI"],
     ["Integrity", "SHA-256"],
-    ["Verification", "16 automated tests"],
+    ["Validation", "8 verified round trips · resume recovery"],
     ["Measured transfer", "13,632,512 bytes"],
   ] as Array<[string, string]>,
   links: [],

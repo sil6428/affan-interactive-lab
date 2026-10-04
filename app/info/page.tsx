@@ -18,7 +18,7 @@ const timeline = [
     role: "Co-Founder and Website Developer",
     place: "SSIK IT Consulting & Solutions · Ontario",
     date: "05/2026 — Present",
-    detail: "Co-founded SSIK with Ontario Tech classmate Ghayas Sher. We share consulting, security-assessment, privacy-research, and stakeholder responsibilities. I independently delivered the public website and a private, local-first 12-stage research and review platform verified by 110 passing tests plus lint, type, migration, integrity, and secret checks.",
+    detail: "Co-founded SSIK with Ontario Tech classmate Ghayas Sher. We share consulting, security-assessment, privacy-research, and stakeholder responsibilities. I independently delivered the nine-page public website and a private, local-first 12-stage research and review platform with lint, type, migration, integrity, and secret controls.",
   },
   {
     role: "Technical Operations and Hosting",
@@ -90,7 +90,7 @@ export default function Info() {
               I use this portfolio as an ongoing record rather than a polished snapshot that hides the process. Completed work includes measurements and verification; active work includes its present boundary and next step; private work explains architecture without exposing confidential material; and older projects stay useful when they show where a skill started.
             </p>
             <p>
-              That also means correcting the record when something changes. Test totals, project status, deployment links, limitations, and responsibilities should agree across the resume, room, AFFAN_OS, GitHub, and the long-form pages. I would rather describe a smaller verified result accurately than make a broad claim that I cannot explain in an interview.
+              That also means correcting the record when something changes. Product outcomes, project status, deployment links, limitations, and responsibilities should agree across the resume, room, AFFAN_OS, GitHub, and the long-form pages. I would rather describe a smaller verified result accurately than make a broad claim that I cannot explain in an interview.
             </p>
           </div>
         </div>
@@ -155,7 +155,7 @@ export default function Info() {
           <a href="mailto:ffaanshake@gmail.com">Email <Arrow /></a>
           <a href="https://www.linkedin.com/in/sil6428" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a>
           <a href="https://github.com/sil6428" target="_blank" rel="noreferrer">GitHub <Arrow /></a>
-          <a href="/Affan_Shaikh_Resume.pdf?v=2026-09-20-relay" target="_blank">Resume <Arrow /></a>
+          <a href="/Affan_Shaikh_Resume.pdf?v=2026-10-04-outcomes" target="_blank">Resume <Arrow /></a>
         </div>
       </section>
 
