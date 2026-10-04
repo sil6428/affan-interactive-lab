@@ -121,8 +121,9 @@ test("renders the measured integrity and OTNow case studies", async () => {
   assert.equal(otnowResponse.status, 200);
   const otnow = await otnowResponse.text();
   assert.match(otnow, /Two read-only Canvas endpoints/);
-  assert.match(otnow, /200\+ privacy-rounded Canvas items organized/i);
-  assert.match(otnow, /Chrome Web Store review submitted/i);
+  assert.match(otnow, /286 Canvas items organized/i);
+  assert.match(otnow, /Published on the Chrome Web Store/i);
+  assert.match(otnow, /ekaachncjiajgiikgikhpafcnepompkn/);
   assert.match(otnow, /github\.com\/sil6428\/OTNow/);
 });
 

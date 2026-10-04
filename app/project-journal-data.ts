@@ -143,7 +143,7 @@ The last successful local snapshot remains available when Canvas is temporarily 
 
 ## Installation and updates
 
-The GitHub release package is prepared so the extension root is the folder a user selects in Chrome, avoiding the common nested-folder error produced by downloading and unzipping the repository source. A separate installation guide explains developer mode, Load unpacked, updating, troubleshooting, and removal in non-technical language.
+The Chrome Web Store is now the recommended installation path because it provides automatic updates and avoids developer-mode setup. The GitHub release remains available for transparent manual installation. Its package is prepared so the extension root is the folder a user selects in Chrome, avoiding the common nested-folder error produced by downloading and unzipping the repository source. A separate guide explains setup, updates, troubleshooting, and removal in non-technical language.
 
 The extension can compare its installed version with the public repository release information and explain the update steps. It does not silently replace itself outside Chrome's normal extension mechanisms.
 
@@ -151,13 +151,13 @@ The extension can compare its installed version with the public repository relea
 
 Automated coverage and release-package checks validate the core normalization, grouping, settings, privacy controls, and packaging behavior. I also tested installation, the authenticated Ontario Tech session bridge, first synchronization, and side-panel rendering against the live Canvas environment.
 
-Version 1.5.0 has been submitted for Chrome Web Store review. The opt-in public dashboard has recorded 200+ privacy-rounded Canvas items organized from fewer than five reporting installations as of October 4, 2026. Those numbers describe voluntary reporting activity, not total users or proof of learning outcomes. The project does not claim store approval, university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
+Version 1.5.0 is published on the Chrome Web Store. The opt-in public dashboard has recorded 286 Canvas items organized across 6 reporting installations as of October 4, 2026. Those numbers describe voluntary reporting activity, not total users or proof of learning outcomes. The project does not claim university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
 
 ## Lessons and roadmap
 
 The project showed that a useful extension needs a complete trust and support path: permissions, privacy, installation, updates, bug reports, suggestions, removal, and failure messages matter as much as the main interface.
 
-Next work includes additional accessibility review, broader student testing, store-listing assets, clearer edge-case reporting, and changes justified by real feedback rather than feature count.`,
+Next work includes additional accessibility review, broader student feedback, clearer edge-case reporting, and changes justified by real use rather than feature count.`,
 
   secureFileTransfer: `## Why this is a separate service
 
