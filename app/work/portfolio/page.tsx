@@ -22,7 +22,10 @@ const data = {
     ["Accessibility", "Object index, semantic pages, reduced-motion handling"],
     ["Repository", "Public"],
   ] as Array<[string, string]>,
-  links: [{ label: "View public repository", href: "https://github.com/sil6428/affan-portfolio" }],
+  links: [
+    { label: "View public repository", href: "https://github.com/sil6428/affan-interactive-lab" },
+    { label: "Open main portfolio", href: "https://affan-shaikh.pages.dev" },
+  ],
   sections: journalSections(projectJournalBodies.portfolio),
   nextSlug: "/work/archtech",
   nextTitle: "Archtech Nonprofit Technology Operations",

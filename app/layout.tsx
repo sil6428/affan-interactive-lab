@@ -4,7 +4,7 @@ import SiteExtras from "./site-extras";
 import TopologyScene from "./topology-scene";
 import "./globals.css";
 
-const publicUrl = "https://affan-shaikh.pages.dev";
+const publicUrl = "https://affan-interactive-lab.pages.dev";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -14,21 +14,21 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(origin),
-    title: "Affan Shaikh | Networking and IT Security",
+    title: "Affan Shaikh | Interactive Lab",
     description:
-      "Portfolio of Affan Shaikh, a Networking and IT Security student, SSIK co-founder, and builder of secure communications, security tools, network labs, and useful software.",
+      "Affan Shaikh's interactive Three.js technical showcase, with project case studies, networking labs, and an explorable AFFAN_OS workspace.",
     icons: { icon: "/lab-favicon.svg", shortcut: "/lab-favicon.svg" },
     openGraph: {
-      title: "Affan Shaikh | Networking and IT Security",
-      description: "Networks, security, and software built with purpose.",
+      title: "Affan Shaikh | Interactive Lab",
+      description: "An explorable Three.js technical showcase for networks, security, and software.",
       type: "website",
       url: origin,
       images: [{ url: "/og-lab-v2.png", width: 1200, height: 630, alt: "Affan Shaikh interactive systems lab portfolio" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Affan Shaikh | Networking and IT Security",
-      description: "Networks, security, and software built with purpose.",
+      title: "Affan Shaikh | Interactive Lab",
+      description: "An explorable Three.js technical showcase for networks, security, and software.",
       images: ["/og-lab-v2.png"],
     },
   };
@@ -42,14 +42,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         "@type": "WebSite",
         "@id": `${publicUrl}/#website`,
         url: publicUrl,
-        name: "Affan Shaikh",
-        description: "Networking, cybersecurity, and the things I build.",
+        name: "Affan Shaikh Interactive Lab",
+        description: "An explorable Three.js technical showcase for networks, security, and software.",
       },
       {
         "@type": "ProfilePage",
         "@id": `${publicUrl}/#profile`,
         url: publicUrl,
-        name: "Affan Shaikh | Networking and IT Security",
+        name: "Affan Shaikh | Interactive Lab",
         mainEntity: {
           "@type": "Person",
           name: "Affan Shaikh",

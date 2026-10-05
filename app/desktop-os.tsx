@@ -89,7 +89,7 @@ const baseFolders: Record<StaticFolderId, FolderContent> = {
       { id: "otnow", label: "OTNow.extension", meta: "Local-first Canvas companion", icon: "code", view: { kind: "document", id: "otnow" } },
       { id: "ssik", label: "SSIK Consulting.project", meta: "Private platform + website", icon: "code", view: { kind: "document", id: "ssik" } },
       { id: "archtech", label: "Archtech Operations.project", meta: "Nonprofit technology", icon: "code", view: { kind: "document", id: "archtech" } },
-      { id: "portfolio", label: "Portfolio.repo", meta: "Three.js + React", icon: "code", view: { kind: "document", id: "portfolio" } },
+      { id: "portfolio", label: "InteractiveLab.repo", meta: "Three.js + React", icon: "code", view: { kind: "document", id: "portfolio" } },
       { id: "secure-transfer", label: "Secure File Transfer.py", meta: "TLS service + local browser workspace", icon: "code", view: { kind: "document", id: "secure-file-transfer" } },
       { id: "secure-messaging", label: "P2P Messaging.project", meta: "Public educational prototype · active", icon: "code", view: { kind: "document", id: "secure-messaging" } },
       { id: "integrity", label: "File Integrity Monitor.py", meta: "SHA-256 engine + Integrity Desk UI", icon: "code", view: { kind: "document", id: "file-integrity-monitor" } },
@@ -278,7 +278,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
     ],
   },
   portfolio: {
-    title: "Portfolio.repo",
+    title: "InteractiveLab.repo",
     type: "Repository · React + Three.js",
     intro: "This portfolio is a production Next.js application built around an interactive Three.js room and the AFFAN_OS desktop environment. The room combines generated geometry, selected lightweight CC0 glTF assets, adaptive rendering, object-level navigation, camera transitions, and a non-3D index; the desktop then exposes project documents, technical evidence, learning history, interests, contact paths, and the current resume.",
     bullets: [
@@ -291,7 +291,8 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
     ],
     body: projectJournalBodies.portfolio,
     links: [
-      { label: "View repository", href: "https://github.com/sil6428/affan-portfolio" },
+      { label: "View repository", href: "https://github.com/sil6428/affan-interactive-lab" },
+      { label: "Open main portfolio", href: "https://affan-shaikh.pages.dev" },
     ],
   },
   otnow: {

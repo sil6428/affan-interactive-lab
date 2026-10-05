@@ -1,8 +1,8 @@
-# Affan Shaikh Interactive Portfolio
+# Affan Shaikh Interactive Lab
 
-An interactive Three.js portfolio for Affan Shaikh, a Networking and IT Security student at Ontario Tech University.
+An interactive Three.js technical showcase for Affan Shaikh, a Networking and IT Security student at Ontario Tech University. The professional portfolio lives at [affan-shaikh.pages.dev](https://affan-shaikh.pages.dev).
 
-[Open the live portfolio](https://affan-shaikh.pages.dev)
+[Open the Interactive Lab](https://affan-interactive-lab.pages.dev)
 
 ![Interactive cyber-lab preview](public/og-lab-v2.png)
 
@@ -51,8 +51,8 @@ The detailed build history is in [`CHANGELOG.md`](CHANGELOG.md).
 Node.js 22.13 or newer is required.
 
 ```bash
-git clone https://github.com/sil6428/affan-portfolio.git
-cd affan-portfolio
+git clone https://github.com/sil6428/affan-interactive-lab.git
+cd affan-interactive-lab
 npm install
 npm run dev
 ```
@@ -69,7 +69,7 @@ npm test
 ## Content notes
 
 - File Integrity Monitor is a public, dependency-free Python tool that detected all 45 controlled changes across 500 fixture files with zero scan errors and documents its baseline-trust limitations.
-- OTNow is a public, local-first Chrome extension for Ontario Tech Canvas. It uses two read-only Canvas endpoints, keeps coursework in local Chrome storage, has organized 286 Canvas items across 6 opt-in reporting installations, and is available on the Chrome Web Store.
+- OTNow is a public, local-first Chrome extension for Ontario Tech Canvas. It uses two read-only Canvas endpoints, keeps coursework in local Chrome storage, has organized 290 Canvas items across 8 opt-in reporting installations, and is available on the Chrome Web Store.
 - Archtech work covers Google Workspace, website-team coordination, hosting, and deployment for a developing nonprofit. Its source and internal work remain private.
 - SSIK IT Consulting & Solutions was co-founded with Ghayas Sher. We share service planning, security-control research, privacy research, and stakeholder communication. I independently built and maintain its nine-page public website and a private, local-first 12-stage internal intelligence workflow with passive collection, evidence review, role-based access, bounded automation, and recovery controls. The private source is intentionally not linked.
 - Secure File Transfer is a completed private Python project covering authenticated TLS, certificate and hostname verification, recipient isolation, resumable transfers, SHA-256 verification, and tamper quarantine. Eight verified upload/download round trips moved 13,632,512 bytes, including a 2 MiB upload resumed from the server's exact 700,000-byte offset. Its source is intentionally not linked.

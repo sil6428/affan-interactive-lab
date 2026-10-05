@@ -151,7 +151,7 @@ The extension can compare its installed version with the public repository relea
 
 Automated coverage and release-package checks validate the core normalization, grouping, settings, privacy controls, and packaging behavior. I also tested installation, the authenticated Ontario Tech session bridge, first synchronization, and side-panel rendering against the live Canvas environment.
 
-Version 1.5.0 is published on the Chrome Web Store. The opt-in public dashboard has recorded 286 Canvas items organized across 6 reporting installations as of October 4, 2026. Those numbers describe voluntary reporting activity, not total users or proof of learning outcomes. The project does not claim university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
+Version 1.5.0 is published on the Chrome Web Store. The opt-in public dashboard has recorded 290 Canvas items organized across 8 reporting installations as of October 5, 2026. Those numbers describe voluntary reporting activity, not total users or proof of learning outcomes. The project does not claim university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
 
 ## Lessons and roadmap
 
