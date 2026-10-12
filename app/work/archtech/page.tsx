@@ -3,19 +3,21 @@ import { journalSections, projectJournalBodies } from "../../project-journal-dat
 import CaseStudy from "../case-study";
 
 export const metadata: Metadata = {
-  title: "Archtech Nonprofit Technology Operations | Affan Shaikh",
-  description: "Google Workspace setup, team coordination, and website hosting for a developing nonprofit.",
+  title: "Arch Narrative Internal Technical Operations | Affan Shaikh",
+  description: "Google Workspace, access, internal systems, repositories, and deployment workflows supporting a developing nonprofit.",
 };
 
 const data = {
   index: "01",
-  title: "Archtech Nonprofit Technology Operations",
+  title: "Arch Narrative Internal Technical Operations",
   label: "Nonprofit infrastructure · Active",
-  summary: "I set up the collaboration foundation for a developing nonprofit, coordinate the contributors building its website, and own the hosting and deployment path that turns private team work into a stable release. The work combines account administration, access ownership, technical communication, release coordination, and hands-on implementation support.",
+  summary: "As Head of Internal Technical Operations, I build and manage systems for Arch Narrative's 350+ volunteers, including 38 people serving in internal roles. The work combines Google Workspace administration, access ownership, internal tooling, repositories, deployment workflows, technical communication, and operational continuity.",
   facts: [
-    ["Role", "Google Workspace and web hosting"],
+    ["Role", "Head of Internal Technical Operations"],
+    ["Organization", "350+ volunteers"],
+    ["Internal roles", "38 people"],
     ["Status", "Active, private development"],
-    ["Team", "Website team coordination"],
+    ["Scope", "Workspace, access, tools, repositories, deployment"],
     ["Repository", "Private"],
     ["Focus", "Collaboration, hosting, reliable releases"],
   ] as Array<[string, string]>,

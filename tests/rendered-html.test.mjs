@@ -22,7 +22,7 @@ test("renders the full-screen interactive portfolio", async () => {
   assert.match(response.headers.get("permissions-policy") ?? "", /camera=\(\)/);
   const html = await response.text();
   assert.match(html, /Affan Shaikh/);
-  assert.match(html, /INTERACTIVE PORTFOLIO \/ DOCUMENTED BUILDS/);
+  assert.match(html, /INTERACTIVE LAB \/ TECHNICAL SHOWCASE/);
   assert.match(html, /Networking \+ IT Security/);
   assert.match(html, /Portfolio shortcuts/);
   assert.match(html, /Affan_Shaikh_Resume\.pdf/);
@@ -32,7 +32,7 @@ test("renders the full-screen interactive portfolio", async () => {
   assert.match(html, /AFFAN_LAB \/ RENDER PIPELINE/);
   assert.match(html, /3D room objects/);
   assert.match(html, /Technology operations/);
-  assert.match(html, /SSIK co-founder/);
+  assert.match(html, /SSIK and Arch Narrative/);
   assert.match(html, /Integrity file/);
   assert.match(html, /Server rack/);
   assert.match(html, /3D printer/);
@@ -54,16 +54,20 @@ test("renders the full-screen interactive portfolio", async () => {
   assert.doesNotMatch(html, /href="\/interests"/);
   assert.doesNotMatch(html, /href="\/work\//);
   assert.match(html, /Soundtrack/);
-  assert.doesNotMatch(html, /Arch Narrative/i);
+  assert.match(html, /Arch Narrative/i);
 });
 
 test("renders the current nonprofit operations case study", async () => {
   const archtechResponse = await render("/work/archtech");
   assert.equal(archtechResponse.status, 200);
   const archtech = await archtechResponse.text();
-  assert.match(archtech, /Google Workspace environment/);
-  assert.match(archtech, /hosting and deployment path/);
-  assert.match(archtech, /Website team coordination/);
+  assert.match(archtech, /Arch Narrative/);
+  assert.match(archtech, /Head of Internal Technical Operations/);
+  assert.match(archtech, /350\+/);
+  assert.match(archtech, /38 people/);
+  assert.match(archtech, /Google Workspace/);
+  assert.match(archtech, /deployment workflows/);
+  assert.match(archtech, /Workspace, access, tools, repositories, deployment/);
   assert.match(archtech, /Repository.*Private/s);
   assert.match(archtech, /website source and unfinished organizational material remain private/i);
 });
@@ -121,7 +125,7 @@ test("renders the measured integrity and OTNow case studies", async () => {
   assert.equal(otnowResponse.status, 200);
   const otnow = await otnowResponse.text();
   assert.match(otnow, /Two read-only Canvas endpoints/);
-  assert.match(otnow, /286 Canvas items organized/i);
+  assert.match(otnow, /700\+ Canvas items organized/i);
   assert.match(otnow, /Published on the Chrome Web Store/i);
   assert.match(otnow, /ekaachncjiajgiikgikhpafcnepompkn/);
   assert.match(otnow, /github\.com\/sil6428\/OTNow/);
@@ -658,7 +662,7 @@ test("includes the device-local soundtrack and hidden terminal", async () => {
   assert.match(designReferences, /Perry Wang portfolio/);
   assert.match(designReferences, /Three\.js Resources 3D-assets directory/);
   assert.match(designReferences, /No TurboSquid model is included/);
-  assert.match(desktopOs, /Archtech Operations\.project/);
+  assert.match(desktopOs, /Arch Narrative Operations\.project/);
   assert.match(desktopOs, /SSIK Consulting\.project/);
   assert.match(desktopOs, /Ghayas Sher/);
   assert.match(desktopOs, /private, local-first SSIK Intelligence V1 platform/);
@@ -679,7 +683,7 @@ test("includes the device-local soundtrack and hidden terminal", async () => {
   assert.doesNotMatch(desktopOs, /github\.com\/sil6428\/secure-messaging-platform/);
   assert.match(desktopOs, /Event Planner\.js/);
   assert.match(desktopOs, /Resume\.pdf/);
-  assert.match(desktopOs, /Affan_Shaikh_Resume\.pdf\?v=2026-10-04-outcomes#view=FitH/);
+  assert.match(desktopOs, /Affan_Shaikh_Resume\.pdf\?v=2026-10-11-metrics#view=FitH/);
   assert.match(desktopOs, /Affan Shaikh resume PDF/);
   assert.match(desktopOs, /Ontario Tech\.txt/);
   assert.match(desktopOs, /Security\+\.plan/);

@@ -65,7 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           },
           affiliation: [
             { "@type": "Organization", name: "SSIK IT Consulting & Solutions" },
-            { "@type": "Organization", name: "Archtech" },
+            { "@type": "Organization", name: "Arch Narrative" },
           ],
           knowsAbout: [
             "Cybersecurity",

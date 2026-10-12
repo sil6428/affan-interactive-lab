@@ -1,9 +1,9 @@
 export const projectJournalBodies = {
   archtech: `## Why the operational foundation comes first
 
-Archtech is a developing nonprofit, so the technical problem is larger than producing a website that looks finished on one computer. The organization needs durable ownership of its accounts, a release path that another authorized person can understand, and a recovery route that does not depend on one contributor remembering an undocumented password.
+Arch Narrative is a developing nonprofit with 350+ volunteers, including 38 people serving in internal roles, so the technical problem is larger than producing a website that looks finished on one computer. The organization needs durable ownership of its accounts, a release path that another authorized person can understand, and a recovery route that does not depend on one contributor remembering an undocumented password.
 
-I established the Google Workspace environment, coordinate the contributors building the private website, and own the hosting and deployment path. I also support implementation, but my central responsibility is continuity across people, accounts, source code, hosting, and the eventual public release.
+As Head of Internal Technical Operations, I build and manage the internal systems, Google Workspace, access, repositories, and deployment workflows used across the organization. My central responsibility is continuity across people, accounts, source code, hosting, and the eventual public release.
 
 ## How work moves toward a release
 
@@ -151,7 +151,7 @@ The extension can compare its installed version with the public repository relea
 
 Automated coverage and release-package checks validate the core normalization, grouping, settings, privacy controls, and packaging behavior. I also tested installation, the authenticated Ontario Tech session bridge, first synchronization, and side-panel rendering against the live Canvas environment.
 
-Version 1.5.0 is published on the Chrome Web Store. The opt-in public dashboard has recorded 290 Canvas items organized across 8 reporting installations as of October 5, 2026. Those numbers describe voluntary reporting activity, not total users or proof of learning outcomes. The project does not claim university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
+Version 1.5.0 is published on the Chrome Web Store. The opt-in public dashboard has recorded 700+ Canvas items organized across 12 reporting installations as of October 11, 2026. Those numbers describe voluntary reporting activity, not total users or proof of learning outcomes. The project does not claim university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
 
 ## Lessons and roadmap
 

@@ -21,16 +21,16 @@ const timeline = [
     detail: "Co-founded SSIK with Ontario Tech classmate Ghayas Sher. We share consulting, security-assessment, privacy-research, and stakeholder responsibilities. I independently delivered the nine-page public website and a private, local-first 12-stage research and review platform with lint, type, migration, integrity, and secret controls.",
   },
   {
-    role: "Technical Operations and Hosting",
-    place: "Archtech · Oshawa, ON",
-    date: "2026 — Present",
-    detail: "Established Google Workspace, coordinate the contributors building the private website, and own hosting and deployment for a developing nonprofit. The role focuses on organizational account ownership, understandable handoffs, repeatable releases, and verification of the live result.",
+    role: "Head of Internal Technical Operations",
+    place: "Arch Narrative · Oshawa, ON",
+    date: "01/2026 — Present",
+    detail: "Build and manage internal systems for an organization of 350+ volunteers, including 38 people serving in internal roles. Administer Google Workspace, access, internal tools, repositories, and deployment workflows.",
   },
   {
     role: "Sales Associate",
     place: "Winners · Oshawa, ON",
     date: "05/2025 — Present",
-    detail: "Support customers, process transactions accurately, maintain displays, and coordinate with the team during high-traffic periods.",
+    detail: "Work frequent cashier shifts, process transactions accurately, answer product questions, maintain displays, and coordinate with the team during high-traffic periods.",
   },
   {
     role: "Summer Day Camp Counsellor",
@@ -81,7 +81,7 @@ export default function Info() {
             </p>
             <p>
               I co-founded SSIK with my Ontario Tech classmate Ghayas Sher. We share its consulting, security, privacy,
-              and stakeholder responsibilities, while I independently built its public website and private SSIK Intelligence V1 platform. I also handle Google Workspace, account continuity, website-team coordination, hosting, and deployment for a developing nonprofit while preparing for CompTIA Security+ and expanding a Proxmox home lab.
+              and stakeholder responsibilities, while I independently built its public website and private SSIK Intelligence V1 platform. I also lead internal technical operations for Arch Narrative, an organization of 350+ volunteers with 38 people serving in internal roles, while preparing for CompTIA Security+ and expanding a Proxmox home lab.
             </p>
             <p>
               I am looking for co-op work where I can contribute to real infrastructure and learn from experienced operators. Network operations, security operations, systems administration, infrastructure security, and security-focused development all fit the direction of the work collected here.
@@ -155,7 +155,7 @@ export default function Info() {
           <a href="mailto:ffaanshake@gmail.com">Email <Arrow /></a>
           <a href="https://www.linkedin.com/in/sil6428" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a>
           <a href="https://github.com/sil6428" target="_blank" rel="noreferrer">GitHub <Arrow /></a>
-          <a href="/Affan_Shaikh_Resume.pdf?v=2026-10-04-outcomes" target="_blank">Resume <Arrow /></a>
+          <a href="/Affan_Shaikh_Resume.pdf?v=2026-10-11-metrics" target="_blank">Resume <Arrow /></a>
         </div>
       </section>
 

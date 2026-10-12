@@ -28,7 +28,7 @@ const data = {
   ],
   sections: journalSections(projectJournalBodies.portfolio),
   nextSlug: "/work/archtech",
-  nextTitle: "Archtech Nonprofit Technology Operations",
+  nextTitle: "Arch Narrative Internal Technical Operations",
 };
 
 export default function PortfolioCaseStudy() {

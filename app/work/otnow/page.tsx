@@ -17,7 +17,7 @@ const data = {
     ["Data source", "Two read-only Canvas endpoints"],
     ["Storage", "Local Chrome storage"],
     ["Optional statistics", "Explicit opt-in · numerical totals only"],
-    ["Product outcome", "286 Canvas items organized · 6 opt-in installations"],
+    ["Product outcome", "700+ Canvas items organized · 12 opt-in installations"],
     ["Validation", "Live Canvas + GitHub and store packages"],
     ["Live validation", "Ontario Tech Canvas · Sep. 24, 2026"],
     ["Distribution", "Published on the Chrome Web Store · GitHub release"],

@@ -37,17 +37,17 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     number: "01",
     directory: "Technology operations",
     label: "CO-FOUNDER / TECHNOLOGY OPERATIONS",
-    title: "SSIK and Archtech",
-    summary: "Two active technology roles: co-founding an IT and cybersecurity consulting practice while building its private research platform, and owning collaboration, hosting, and release operations for a developing nonprofit.",
-    details: ["SSIK co-founder", "12-stage private platform", "Nine-page public site", "Workspace + hosting"],
+    title: "SSIK and Arch Narrative",
+    summary: "Two active technology roles: co-founding an IT and cybersecurity consulting practice while building its private research platform, and leading internal technical operations for a developing nonprofit of 350+ volunteers with 38 people serving in internal roles.",
+    details: ["SSIK co-founder", "12-stage private platform", "Nine-page public site", "Arch Narrative · 350+ volunteers"],
     sections: [
       {
         heading: "SSIK co-founder",
         body: "I co-founded SSIK IT Consulting & Solutions with Ghayas Sher, an Ontario Tech classmate. We share consulting, security assessment, privacy research, and stakeholder responsibilities. I independently built the nine-page public website and the private, local-first SSIK Intelligence platform. Its 12-stage workflow connects passive research, evidence review, role-based access, approvals, rescans, export, and recovery.",
       },
       {
-        heading: "Archtech operations",
-        body: "For Archtech, I established the Google Workspace environment, organize the contributors building the website, and own the hosting and deployment path. That means keeping account ownership, release access, team handoffs, and the public deployment understandable instead of allowing the project to depend on one person's computer or an undocumented login.",
+        heading: "Arch Narrative operations",
+        body: "As Head of Internal Technical Operations for Arch Narrative, I build and manage systems for an organization of 350+ volunteers, including 38 people serving in internal roles. I administer Google Workspace, access, internal tools, repositories, and deployment workflows while keeping ownership, handoffs, recovery, and release responsibilities understandable.",
       },
       {
         heading: "How I approach technical operations",
@@ -55,7 +55,7 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
       },
     ],
     links: [
-      { label: "Read Archtech operations case study", href: "/work/archtech" },
+      { label: "Read Arch Narrative operations case study", href: "/work/archtech" },
       { label: "Read SSIK case study", href: "/work/ssik" },
       { label: "Visit SSIK website", href: "https://sil6428.github.io/SSIK-website/index.html" },
       { label: "View SSIK website source", href: "https://github.com/sil6428/SSIK-website" },
@@ -240,7 +240,7 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
       },
       {
         heading: "Experience",
-        body: "I co-founded SSIK with Ontario Tech classmate Ghayas Sher, share its consulting, security-assessment, privacy-research, and stakeholder responsibilities, and independently built its public website and private internal platform. For Archtech, I established Google Workspace and coordinate website hosting and deployment. Customer-facing employment and more than 430 volunteer hours add practice in communication, accuracy, conflict resolution, and operating calmly when many people need help at once.",
+        body: "I co-founded SSIK with Ontario Tech classmate Ghayas Sher, share its consulting, security-assessment, privacy-research, and stakeholder responsibilities, and independently built its public website and private internal platform. As Arch Narrative's Head of Internal Technical Operations, I support an organization of 350+ volunteers, including 38 people serving in internal roles, through Google Workspace, access, internal systems, repositories, and deployment workflows. Customer-facing employment and more than 430 volunteer hours add practice in communication, accuracy, conflict resolution, and operating calmly when many people need help at once.",
       },
       {
         heading: "How I learn",
@@ -255,7 +255,7 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
       { label: "GitHub", href: "https://github.com/sil6428" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/sil6428" },
       { label: "Email", href: "mailto:ffaanshake@gmail.com" },
-      { label: "Resume", href: "/Affan_Shaikh_Resume.pdf?v=2026-10-04-outcomes" },
+      { label: "Resume", href: "/Affan_Shaikh_Resume.pdf?v=2026-10-11-metrics" },
     ],
     cameraOffset: [0, 0.1, 3.05],
     targetOffset: [0, 0, 0],
@@ -302,7 +302,7 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
         body: "The short bullets are backed by this portfolio's longer case studies, public repositories where appropriate, automated tests, controlled benchmarks, learning-log entries, and honest limitation statements. The PDF remains single-column and text-extractable so an applicant-tracking system and a human reader can follow the same structure.",
       },
     ],
-    links: [{ label: "Open resume PDF", href: "/Affan_Shaikh_Resume.pdf?v=2026-10-04-outcomes" }],
+    links: [{ label: "Open resume PDF", href: "/Affan_Shaikh_Resume.pdf?v=2026-10-11-metrics" }],
     cameraOffset: [0, 0.1, 3.05],
     targetOffset: [0, 0, 0],
   },
