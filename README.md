@@ -1,50 +1,66 @@
-# Affan Shaikh Interactive Lab
+<div align="center">
+  <h1>Affan Interactive Lab</h1>
+  <p><strong>A technical portfolio you explore as a Three.js cyber-lab.</strong></p>
+  <p>Inspect the room, boot AFFAN_OS, open project files, or use the accessible HTML routes for the same work.</p>
 
-An interactive Three.js technical showcase for Affan Shaikh, a Networking and IT Security student at Ontario Tech University. The professional portfolio lives at [affan-shaikh.pages.dev](https://affan-shaikh.pages.dev).
+  <p>
+    <a href="https://affan-interactive-lab.pages.dev"><img alt="Open the Interactive Lab" src="https://img.shields.io/badge/Interactive_Lab-Launch-111827?logo=threedotjs&amp;logoColor=white"></a>
+    <a href="https://affan-shaikh.pages.dev"><img alt="Open the professional portfolio" src="https://img.shields.io/badge/Professional_Portfolio-Open-22c55e?logo=cloudflarepages&amp;logoColor=white"></a>
+    <img alt="React, TypeScript, and Three.js" src="https://img.shields.io/badge/React_%2B_Three.js-Interactive-087ea4?logo=react&amp;logoColor=white">
+  </p>
 
-[Open the Interactive Lab](https://affan-interactive-lab.pages.dev)
+  <p>
+    <a href="CHANGELOG.md">Changelog</a> ·
+    <a href="DESIGN_REFERENCES.md">Design references</a> ·
+    <a href="THIRD_PARTY_ASSETS.md">Asset attribution</a>
+  </p>
+</div>
 
 ![Interactive cyber-lab preview](public/og-lab-v2.png)
 
-## Experience
+## What you can explore
 
-The homepage is a full-screen cyber-lab diorama. Visitors inspect highlighted objects, move through eased camera transitions, and open the portfolio's content without leaving the room. The computer boots into AFFAN_OS, a simulated desktop with a file manager, terminal, resume viewer, project files, contact links, month-organized learning logs, and a dedicated TryHackMe training folder.
-
-Normal HTML routes remain available for direct links and accessible reading:
-
-- `/info`
-- `/interests`
-- `/work/archtech`
-- `/work/ssik`
-- `/work/file-integrity-monitor`
-- `/work/otnow`
-- `/work/p2p-messaging`
-- `/work/secure-file-transfer`
-- `/interests/badminton`
-- `/interests/3d-printing`
-- `/interests/reading`
-- `/interests/photography`
-- `/interests/home-lab`
+- **A full-room interface.** Select highlighted objects, move through eased camera transitions, and open content without leaving the lab.
+- **AFFAN_OS.** The computer boots into a simulated desktop with a file manager, terminal, resume viewer, project files, contact links, learning logs, and a TryHackMe folder.
+- **Technical case files.** OTNow, secure communications, file integrity, infrastructure, nonprofit operations, and other work open as readable project records.
+- **Personal context.** The room also includes interests such as a home lab, 3D printing, reading, photography, and badminton.
+- **Accessible fallbacks.** Every major project and interest has a direct HTML route; the 3D room is an enhancement, not the only way in.
 
 ## Engineering highlights
 
 - Procedural Three.js room, workstation, server rack, 3D printer, chess set, racket, bookshelf, katana, and animated black cat
-- Licensed local CC0 camera model documented in [`THIRD_PARTY_ASSETS.md`](THIRD_PARTY_ASSETS.md)
-- Whole-object raycast highlighting, keyboard access, touch controls, reduced-motion support, and direct route fallbacks
+- Whole-object raycast highlighting, keyboard access, touch controls, and reduced-motion support
 - Adaptive render tiers, bounded shadows, throttled reflections, idle frame limiting, and hidden-tab suspension
-- A first-frame AFFAN_LAB readiness state and deferred AFFAN_OS desktop module so the room appears deliberately instead of flashing in half-built
-- AFFAN_OS desktop with folders, windows, search, terminal commands, resume viewing, synchronized learning logs, and a month-organized TryHackMe training record
+- First-frame `AFFAN_LAB` readiness state and deferred AFFAN_OS module to prevent a half-built initial frame
 - Deterministic three-minute chess-set print animation and small room Easter eggs
-- Production deployment on Cloudflare Pages with permanent redirects from the earlier Pages and Workers addresses
-- Automated rendered-route and public-content checks
+- Month-organized learning-log synchronization and an internal Markdown reader
+- Cloudflare Pages deployment with permanent redirects from earlier addresses
+- Rendered-route and public-content checks in the automated test suite
 
-The detailed build history is in [`CHANGELOG.md`](CHANGELOG.md).
+## Direct routes
 
-## Technology
+Visitors who prefer ordinary pages can open:
 
-- TypeScript, React 19, Three.js, Vinext, Vite 8
-- Cloudflare Pages, Vinext's Cloudflare runtime output, and the Cloudflare Vite plugin
-- ESLint and the Node.js test runner
+| Area | Routes |
+| --- | --- |
+| Profile | `/info`, `/interests` |
+| Technical work | `/work/otnow`, `/work/p2p-messaging`, `/work/secure-file-transfer`, `/work/file-integrity-monitor` |
+| Operations and consulting | `/work/archtech`, `/work/ssik` |
+| Interests | `/interests/home-lab`, `/interests/3d-printing`, `/interests/reading`, `/interests/photography`, `/interests/badminton` |
+
+## How it works
+
+```text
+Typed portfolio content + synchronized learning log
+                    ↓
+React routes and accessible HTML case files
+                    ↓
+Three.js room + object interaction layer
+                    ↓
+Deferred AFFAN_OS desktop and project windows
+                    ↓
+Vinext/Vite production build → Cloudflare Pages
+```
 
 ## Local development
 
@@ -57,31 +73,53 @@ npm install
 npm run dev
 ```
 
-Quality checks:
+Run the complete quality checks:
 
 ```bash
 npm run lint
 npm test
 ```
 
-`npm test` creates a production build and validates the main routes, metadata, public wording, links, and key interaction hooks.
+`npm test` creates a production build and validates the main routes, metadata, public wording, links, and required interaction hooks.
 
-## Content notes
+## Performance and accessibility
 
-- File Integrity Monitor is a public, dependency-free Python tool that detected all 45 controlled changes across 500 fixture files with zero scan errors and documents its baseline-trust limitations.
-- OTNow is a public, local-first Chrome extension for Ontario Tech Canvas. It uses two read-only Canvas endpoints, keeps coursework in local Chrome storage, has organized 700+ Canvas items across 12 opt-in reporting installations, and is available on the Chrome Web Store.
-- Arch Narrative work covers internal technical operations, Google Workspace, access, repositories, and deployment workflows for an organization of 350+ volunteers, including 38 people serving in internal roles. Its source and internal work remain private.
-- SSIK IT Consulting & Solutions was co-founded with Ghayas Sher. We share service planning, security-control research, privacy research, and stakeholder communication. I independently built and maintain its nine-page public website and a private, local-first 12-stage internal intelligence workflow with passive collection, evidence review, role-based access, bounded automation, and recovery controls. The private source is intentionally not linked.
-- Secure File Transfer is a completed private Python project covering authenticated TLS, certificate and hostname verification, recipient isolation, resumable transfers, SHA-256 verification, and tamper quarantine. Eight verified upload/download round trips moved 13,632,512 bytes, including a 2 MiB upload resumed from the server's exact 700,000-byte offset. Its source is intentionally not linked.
-- P2P Messaging is a public collaborative work in progress. The portfolio documents its local browser workspace, verified contacts, encrypted and signed direct messages, authenticated replies, encrypted history, signed attachment references, persistent replay rejection, 64 KiB frame limits, 4 KiB plaintext limits, and major missing production guarantees without presenting it as audited software.
-- The portfolio pages do not display a phone number outside the downloadable conference resume, which includes direct contact details for recruiters and attendees.
+The room is intentionally bounded so the visual concept does not take over the computer:
+
+- device capability selects an adaptive render tier;
+- reflection and shadow work is limited;
+- animation slows while idle and suspends in hidden tabs;
+- reduced-motion users keep the content without camera-heavy transitions; and
+- direct routes remain usable without navigating the 3D environment.
+
+## Development
+
+### Technology
+
+- React 19, TypeScript, Three.js, Next.js, Vinext, and Vite
+- Cloudflare Pages and the Cloudflare Vite plugin
+- ESLint and the Node.js test runner
+
+### Repository map
+
+| Path | Purpose |
+| --- | --- |
+| `app/` | Lab interface, direct routes, project pages, and interests |
+| `public/` | Preview art, favicons, portfolio assets, and deploy-time files |
+| `scripts/sync-learning-log.mjs` | Imports the public learning log into AFFAN_OS |
+| `scripts/prepare-pages.mjs` | Prepares the Cloudflare Pages output |
+| `tests/rendered-html.test.mjs` | Production-route, metadata, link, and content checks |
+| `worker/` | Cloudflare runtime integration |
+| `legacy-redirect/` | Redirects from earlier deployment addresses |
 
 ## References and assets
 
-The interaction system was informed by [Ida's Gameboy](https://idas-gameboy.netlify.app/), [Jesse Zhou's portfolio](https://www.jesse-zhou.com/), [Bruno Simon's portfolio](https://bruno-simon.com/), [React Bits](https://reactbits.dev/get-started/introduction), Rachel Wei's [portfolio](https://rachelqrwei.ca/use) and [repository](https://github.com/rachelqrwei/personalwebsite), and the official [Three.js documentation](https://threejs.org/). The implementation, room, interface, copy, and custom models are original. No source or assets were copied from projects without a compatible licence.
+The interaction approach was informed by Ida's Gameboy, Jesse Zhou's portfolio, Bruno Simon's portfolio, React Bits, Rachel Wei's portfolio, and the Three.js documentation. The room, interface, copy, and custom models are original.
 
-See [`DESIGN_REFERENCES.md`](DESIGN_REFERENCES.md), [`THIRD_PARTY_ASSETS.md`](THIRD_PARTY_ASSETS.md), and [`SOUND_EFFECTS.md`](SOUND_EFFECTS.md) for complete attribution.
+The local camera model is CC0 and documented with all other external assets in [`THIRD_PARTY_ASSETS.md`](THIRD_PARTY_ASSETS.md). See [`DESIGN_REFERENCES.md`](DESIGN_REFERENCES.md) and [`SOUND_EFFECTS.md`](SOUND_EFFECTS.md) for the complete record.
 
-## License
+## Status and licence
+
+The Interactive Lab is actively maintained as the deeper companion to the [professional portfolio](https://affan-shaikh.pages.dev). Project pages retain measured evidence and state missing production guarantees directly.
 
 Copyright © 2026 Affan Shaikh. All rights reserved. The source is public for portfolio review. Reuse, redistribution, modification, or publication requires prior written permission. See [`LICENSE`](LICENSE).
