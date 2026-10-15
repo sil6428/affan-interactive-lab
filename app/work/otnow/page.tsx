@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { journalSections, projectJournalBodies } from "../../project-journal-data";
-import CaseStudy from "../case-study";
+import LiveOTNowCaseStudy from "./live-case-study";
 
 export const metadata: Metadata = {
   title: "OTNow Canvas Companion | Affan Shaikh",
@@ -17,7 +17,7 @@ const data = {
     ["Data source", "Two read-only Canvas endpoints"],
     ["Storage", "Local Chrome storage"],
     ["Optional statistics", "Explicit opt-in · numerical totals only"],
-    ["Product outcome", "700+ Canvas items organized · 12 opt-in installations"],
+    ["Product outcome", "907 Canvas items organized · 13 opt-in reporting installations"],
     ["Validation", "Live Canvas + GitHub and store packages"],
     ["Live validation", "Ontario Tech Canvas · Sep. 24, 2026"],
     ["Distribution", "Published on the Chrome Web Store · GitHub release"],
@@ -35,5 +35,5 @@ const data = {
 };
 
 export default function OTNowCaseStudy() {
-  return <CaseStudy data={data} />;
+  return <LiveOTNowCaseStudy data={data} />;
 }

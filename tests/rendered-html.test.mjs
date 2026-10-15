@@ -125,10 +125,20 @@ test("renders the measured integrity and OTNow case studies", async () => {
   assert.equal(otnowResponse.status, 200);
   const otnow = await otnowResponse.text();
   assert.match(otnow, /Two read-only Canvas endpoints/);
-  assert.match(otnow, /700\+ Canvas items organized/i);
+  assert.match(otnow, /907 Canvas items organized/i);
   assert.match(otnow, /Published on the Chrome Web Store/i);
   assert.match(otnow, /ekaachncjiajgiikgikhpafcnepompkn/);
   assert.match(otnow, /github\.com\/sil6428\/OTNow/);
+});
+
+test("loads current OTNow totals from the privacy-safe public aggregate", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const source = await readFile(new URL("../app/otnow-stats.ts", import.meta.url), "utf8");
+  const worker = await readFile(new URL("../worker/index.ts", import.meta.url), "utf8");
+  assert.match(source, /otnow-stats\.sil6428-archtech\.workers\.dev\/api\/stats/);
+  assert.match(source, /reportingInstallations/);
+  assert.match(source, /totalItems/);
+  assert.match(worker, /connect-src 'self' https:\/\/otnow-stats\.sil6428-archtech\.workers\.dev/);
 });
 
 test("renders the networking and portfolio build journals", async () => {

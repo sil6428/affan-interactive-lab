@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-type CaseStudyData = {
+export type CaseStudyData = {
   index: string;
   title: string;
   label: string;

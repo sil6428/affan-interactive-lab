@@ -31,7 +31,7 @@ const CONTENT_SECURITY_POLICY = [
   "img-src 'self' data: blob:",
   "media-src 'self' blob:",
   "frame-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://otnow-stats.sil6428-archtech.workers.dev",
   "worker-src 'self' blob:",
   "manifest-src 'self'",
 ].join("; ");

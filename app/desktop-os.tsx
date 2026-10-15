@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { learningLogEntries } from "./learning-log-data.generated";
 import { projectJournalBodies } from "./project-journal-data";
+import { formatOTNowOutcome, useOTNowStats } from "./otnow-stats";
 import { tryHackMeEntries } from "./tryhackme-data";
 
 type StaticFolderId = "home" | "projects" | "networking" | "education" | "experience" | "interests" | "contact" | "inspiration";
@@ -655,6 +656,30 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
   ]);
   const windowRef = useRef<HTMLElement>(null);
   const terminalInputRef = useRef<HTMLInputElement>(null);
+  const otnowStats = useOTNowStats();
+  const liveDocuments = useMemo(() => {
+    if (!otnowStats) return documents;
+    const outcome = formatOTNowOutcome(otnowStats);
+    return {
+      ...documents,
+      otnow: {
+        ...documents.otnow,
+        bullets: documents.otnow.bullets?.map((bullet) =>
+          bullet.includes("opt-in public dashboard has recorded")
+            ? `Published version 1.5.0 on the Chrome Web Store; the live opt-in dashboard currently reports ${outcome}`
+            : bullet
+        ),
+      },
+      skills: {
+        ...documents.skills,
+        bullets: documents.skills.bullets?.map((bullet) =>
+          bullet.startsWith("Browser extensions ·")
+            ? `Browser extensions · Built OTNow as a local-first Manifest V3 Canvas companion with allowlisted reads, deadline reconciliation, reminders, offline cache, Chrome Web Store distribution, and a live public aggregate of ${outcome}`
+            : bullet
+        ),
+      },
+    } as typeof documents;
+  }, [otnowStats]);
 
   useEffect(() => {
     const timer = window.setInterval(() => setClock(new Date()), 30_000);
@@ -689,7 +714,7 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
     setMinimized(false);
     setLauncherOpen(false);
     setQuery("");
-    const label = next.kind === "folder" ? folders[next.id].title : documents[next.id].title;
+    const label = next.kind === "folder" ? folders[next.id].title : liveDocuments[next.id].title;
     setAnnouncement(`Opened ${label}`);
   };
 
@@ -711,7 +736,7 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
     }
     setView(previous);
     setHistory((current) => current.slice(0, -1));
-    const label = previous.kind === "folder" ? folders[previous.id].title : documents[previous.id].title;
+    const label = previous.kind === "folder" ? folders[previous.id].title : liveDocuments[previous.id].title;
     setAnnouncement(`Returned to ${label}`);
   };
 
@@ -879,7 +904,7 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
       const item = findShellItem(target);
       if (item?.view?.kind !== "document") appendOutput(`cat: ${target || "missing operand"}: No such text file`);
       else {
-        const document = documents[item.view.id];
+        const document = liveDocuments[item.view.id];
         appendOutput(`# ${document.title}`, document.intro, ...(document.bullets ?? []).map((line) => `- ${line}`), ...(document.body?.split("\n") ?? []));
       }
       setTerminalInput("");
@@ -897,7 +922,7 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
       const item = findShellItem(fileParts.join(" "));
       if (!pattern || item?.view?.kind !== "document") appendOutput("usage: grep <pattern> <file>");
       else {
-        const document = documents[item.view.id];
+        const document = liveDocuments[item.view.id];
         const matches = [document.intro, ...(document.bullets ?? []), ...(document.body?.split("\n") ?? [])].filter((line) => line.toLowerCase().includes(pattern.toLowerCase()));
         appendOutput(...(matches.length ? matches : [`grep: no matches for '${pattern}' in ${item.label}`]));
       }
@@ -943,7 +968,7 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
       return;
     }
     if (documentCommands[normalized]) {
-      setTerminalLines((lines) => [...lines, prompt, `Opening ${documents[documentCommands[normalized]].title}...`]);
+      setTerminalLines((lines) => [...lines, prompt, `Opening ${liveDocuments[documentCommands[normalized]].title}...`]);
       setTerminalInput("");
       window.setTimeout(() => openView({ kind: "document", id: documentCommands[normalized] as DocumentId }), 120);
       return;
@@ -1001,7 +1026,7 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
   };
 
   const activeFolder = view?.kind === "folder" ? folders[view.id] : null;
-  const activeDocument = view?.kind === "document" ? documents[view.id] : null;
+  const activeDocument = view?.kind === "document" ? liveDocuments[view.id] : null;
   const documentHeadings = activeDocument?.body
     ? activeDocument.body.split("\n").map((line) => line.trim()).filter((line) => line.startsWith("## ")).map((line) => line.slice(3))
     : [];
