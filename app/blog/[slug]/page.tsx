@@ -71,8 +71,16 @@ export default async function BlogPostPage({ params }: PageProps) {
       </article>
 
       <nav className="blog-post-nav" aria-label="Learning log navigation">
-        {newer ? <Link href={`/blog/${newer.slug}`}><span>newer</span>{newer.entry.title}</Link> : <span />}
-        {older ? <Link href={`/blog/${older.slug}`}><span>older</span>{older.entry.title}</Link> : <span />}
+        {newer ? (
+          <Link href={`/blog/${newer.slug}`}><span>newer</span>{newer.entry.title}</Link>
+        ) : (
+          <span className="blog-post-nav-status"><strong>you&apos;re up to date</strong><em>The next note lands after the next verified milestone.</em></span>
+        )}
+        {older ? (
+          <Link href={`/blog/${older.slug}`}><span>older</span>{older.entry.title}</Link>
+        ) : (
+          <span className="blog-post-nav-status"><strong>start of archive</strong><em>You&apos;ve reached the first public entry.</em></span>
+        )}
       </nav>
 
       <footer className="blog-footer"><p>Affan Shaikh · Learning Log</p><Link href="/blog">back to archive</Link></footer>

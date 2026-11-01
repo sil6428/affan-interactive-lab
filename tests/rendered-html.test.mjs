@@ -252,6 +252,8 @@ test("renders the public learning log as a minimal blog with readable articles a
   assert.match(article, /What I learned/);
   assert.match(article, /On this page/i);
   assert.match(article, /all notes/);
+  assert.match(article, /you(?:&apos;|')re up to date/i);
+  assert.match(article, /next verified milestone/i);
   assert.doesNotMatch(article, /Soundtrack/);
 
   const feedResponse = await render("/blog/feed.xml");
