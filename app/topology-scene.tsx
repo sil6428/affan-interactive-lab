@@ -196,7 +196,7 @@ export default function TopologyScene() {
     };
   }, [pathname, section]);
 
-  if (pathname === "/") return null;
+  if (pathname === "/" || pathname.startsWith("/blog")) return null;
 
   return (
     <div className={`topology-scene topology-scene-${section}`} ref={hostRef} aria-hidden="true">

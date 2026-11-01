@@ -40,6 +40,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
           <Link className="active" href="/">Work</Link>
           <Link href="/info">Info</Link>
           <Link href="/interests">Interests</Link>
+          <Link href="/blog">Blog</Link>
         </nav>
         <div className="header-links">
           <a href="mailto:ffaanshake@gmail.com">Email <Arrow /></a>
@@ -131,7 +132,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
 
       <footer className="site-footer wrap">
         <div><strong>AFFAN SHAIKH</strong><span>Oshawa, Ontario</span></div>
-        <div className="footer-nav"><span>MAIN</span><Link href="/">Work</Link><Link href="/info">Info</Link><Link href="/interests">Interests</Link></div>
+        <div className="footer-nav"><span>MAIN</span><Link href="/">Work</Link><Link href="/info">Info</Link><Link href="/interests">Interests</Link><Link href="/blog">Blog</Link></div>
         <div className="footer-nav"><span>CONTACT</span><a href="mailto:ffaanshake@gmail.com">Email</a><a href="https://www.linkedin.com/in/sil6428">LinkedIn</a><a href="https://github.com/sil6428">GitHub</a></div>
         <p>© 2026 Affan Shaikh. All rights reserved.</p>
       </footer>

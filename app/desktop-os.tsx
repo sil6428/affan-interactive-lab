@@ -172,6 +172,7 @@ const learningLogFolders = Object.fromEntries([
     title: "Learning Log",
     path: "/home/affan/Learning Log",
     items: [
+      { id: "learning-log-blog", label: "Open Blog.url", meta: "Minimal long-form reading view", icon: "link" as const, href: "/blog" },
       ...learningLogMonths.map((month) => ({
         id: `learning-log-${month.year}-${month.month}`,
         label: `${month.monthLabel} ${month.year}`,
@@ -520,7 +521,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
 const learningLogDocuments = Object.fromEntries(learningLogEntries.map((entry) => [entry.id, {
   title: entry.title,
   type: "Public learning log · Markdown",
-  intro: `Published ${entry.date}. This complete entry is stored in the public learning-log repository and rendered locally inside AFFAN_OS.`,
+  intro: `Published ${entry.date}. This complete entry is available in the public Learning Log blog and rendered locally inside AFFAN_OS.`,
   body: entry.body,
   publishedAt: entry.date,
 }])) as Record<LearningLogDocumentId, DocumentContent>;

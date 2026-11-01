@@ -151,6 +151,8 @@ function MobileNavigationTransitions() {
 }
 
 export default function SiteExtras() {
+  const pathname = usePathname();
+  const isBlog = pathname.startsWith("/blog");
   const [soundtrackOpen, setSoundtrackOpen] = useState(false);
   const [playlistId, setPlaylistId] = useState(DEFAULT_PLAYLIST_ID);
   const [playlistInput, setPlaylistInput] = useState("");
@@ -191,6 +193,7 @@ export default function SiteExtras() {
   }, []);
 
   useEffect(() => {
+    if (isBlog) return;
     function handleKeyDown(event: KeyboardEvent) {
       const target = event.target as HTMLElement | null;
       const isTyping =
@@ -239,7 +242,7 @@ export default function SiteExtras() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [isBlog]);
 
   useEffect(() => {
     document.body.classList.toggle("easter-mode", easterMode);
@@ -312,6 +315,8 @@ export default function SiteExtras() {
     setSfxEnabledState(next);
     if (next) playSiteSfx("open");
   }
+
+  if (isBlog) return <MobileNavigationTransitions />;
 
   return (
     <div className="site-extras">

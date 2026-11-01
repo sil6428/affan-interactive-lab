@@ -51,6 +51,7 @@ test("renders the full-screen interactive portfolio", async () => {
   assert.doesNotMatch(html, /class="immersive-footer"/);
   assert.doesNotMatch(html, /class="immersive-status"/);
   assert.match(html, /href="\/info"/);
+  assert.match(html, /href="\/blog"/);
   assert.doesNotMatch(html, /href="\/interests"/);
   assert.doesNotMatch(html, /href="\/work\//);
   assert.match(html, /Soundtrack/);
@@ -207,6 +208,8 @@ test("publishes crawler and structured profile metadata", async () => {
   assert.match(sitemap, /work\/secure-file-transfer/);
   assert.match(sitemap, /work\/cisco-networking-labs/);
   assert.match(sitemap, /work\/portfolio/);
+  assert.match(sitemap, /\/blog/);
+  assert.match(sitemap, /2026-11-01-reconciled-cross-browser-release-work-and-rebuilt-the-learning-log/);
 
   const robotsResponse = await render("/robots.txt");
   assert.equal(robotsResponse.status, 200);
@@ -229,6 +232,34 @@ test("renders the information page", async () => {
   assert.match(html, /Co-Founder and Website Developer/);
   assert.match(html, /Ghayas Sher/);
   assert.doesNotMatch(html, /src="\/affan-portrait\.png"/);
+});
+
+test("renders the public learning log as a minimal blog with readable articles and RSS", async () => {
+  const indexResponse = await render("/blog");
+  assert.equal(indexResponse.status, 200);
+  const index = await indexResponse.text();
+  assert.match(index, /Learning in public/);
+  assert.match(index, /public notes \/ verified work \/ unfinished thinking/i);
+  assert.match(index, /Reconciled cross-browser release work and rebuilt the learning log/);
+  assert.match(index, /2026-11-01-reconciled-cross-browser-release-work-and-rebuilt-the-learning-log/);
+  assert.match(index, /href="\/blog\/feed\.xml"/);
+  assert.doesNotMatch(index, /Soundtrack/);
+
+  const articleResponse = await render("/blog/2026-11-01-reconciled-cross-browser-release-work-and-rebuilt-the-learning-log");
+  assert.equal(articleResponse.status, 200);
+  const article = await articleResponse.text();
+  assert.match(article, /Reconciled cross-browser release work and rebuilt the learning log/);
+  assert.match(article, /What I learned/);
+  assert.match(article, /On this page/i);
+  assert.match(article, /all notes/);
+  assert.doesNotMatch(article, /Soundtrack/);
+
+  const feedResponse = await render("/blog/feed.xml");
+  assert.equal(feedResponse.status, 200);
+  assert.match(feedResponse.headers.get("content-type") ?? "", /application\/rss\+xml/);
+  const feed = await feedResponse.text();
+  assert.match(feed, /Affan Shaikh — Learning Log/);
+  assert.match(feed, /2026-11-01-reconciled-cross-browser-release-work-and-rebuilt-the-learning-log/);
 });
 
 test("renders the expanded interests page", async () => {
@@ -731,6 +762,8 @@ test("includes the device-local soundtrack and hidden terminal", async () => {
   assert.match(learningLog, /Aligned conference-facing portfolio, resume, and repositories/);
   assert.match(learningLog, /learning-log-entry-2026-09-28/);
   assert.match(learningLog, /Reconciled my technical archive with my public portfolio/);
+  assert.match(learningLog, /learning-log-entry-2026-11-01/);
+  assert.match(learningLog, /Reconciled cross-browser release work and rebuilt the learning log/);
   assert.match(learningLog, /learning-log-entry-2026-07-27/);
   assert.match(learningLog, /Set up a genuine learning log/);
   assert.match(tryHackMe, /tryhackme-room-offensive-security-intro/);
