@@ -38,8 +38,8 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
     directory: "Technology operations",
     label: "CO-FOUNDER / TECHNOLOGY OPERATIONS",
     title: "SSIK and Arch Narrative",
-    summary: "Two active technology roles: co-founding an IT and cybersecurity consulting practice while building its private research platform, and leading internal technical operations for a developing nonprofit of 350+ volunteers with 38 people serving in internal roles.",
-    details: ["SSIK co-founder", "12-stage private platform", "Nine-page public site", "Arch Narrative · 350+ volunteers"],
+    summary: "Two active technology roles: co-founding an IT and cybersecurity consulting practice while building its private research platform, and leading internal technical operations for a developing nonprofit of 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026).",
+    details: ["SSIK co-founder", "12-stage private platform", "Nine-page public site", "Arch Narrative · 280 volunteers · 116 students"],
     sections: [
       {
         heading: "SSIK co-founder",
@@ -47,7 +47,7 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
       },
       {
         heading: "Arch Narrative operations",
-        body: "As Head of Internal Technical Operations for Arch Narrative, I build and manage systems for an organization of 350+ volunteers, including 38 people serving in internal roles. I administer Google Workspace, access, internal tools, repositories, and deployment workflows while keeping ownership, handoffs, recovery, and release responsibilities understandable.",
+        body: "As Head of Internal Technical Operations for Arch Narrative, I build and manage systems for an organization of 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026). I administer Google Workspace, access, internal tools, repositories, and deployment workflows while keeping ownership, handoffs, recovery, and release responsibilities understandable.",
       },
       {
         heading: "How I approach technical operations",
@@ -240,7 +240,7 @@ const ROOM_ENTRIES: Record<string, RoomEntry> = {
       },
       {
         heading: "Experience",
-        body: "I co-founded SSIK with Ontario Tech classmate Ghayas Sher, share its consulting, security-assessment, privacy-research, and stakeholder responsibilities, and independently built its public website and private internal platform. As Arch Narrative's Head of Internal Technical Operations, I support an organization of 350+ volunteers, including 38 people serving in internal roles, through Google Workspace, access, internal systems, repositories, and deployment workflows. Customer-facing employment and more than 430 volunteer hours add practice in communication, accuracy, conflict resolution, and operating calmly when many people need help at once.",
+        body: "I co-founded SSIK with Ontario Tech classmate Ghayas Sher, share its consulting, security-assessment, privacy-research, and stakeholder responsibilities, and independently built its public website and private internal platform. As Arch Narrative's Head of Internal Technical Operations, I support an organization of 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026), through Google Workspace, access, internal systems, repositories, and deployment workflows. Customer-facing employment and more than 430 volunteer hours add practice in communication, accuracy, conflict resolution, and operating calmly when many people need help at once.",
       },
       {
         heading: "How I learn",

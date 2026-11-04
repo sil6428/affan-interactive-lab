@@ -241,16 +241,16 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Build and troubleshoot routed and switched Cisco lab environments using IPv4/IPv6 plans, VLANs, trunks, network services, routing protocols, IOS verification commands, and packet-level evidence",
       "Develop security tools with usable local interfaces, shared CLI/core logic, automated tests, controlled benchmarks, and explicit statements about what each control can and cannot guarantee",
       "Co-founded SSIK IT Consulting & Solutions, share its consulting and security responsibilities, and independently built its nine-page public website and 12-stage private internal platform",
-      "Lead Arch Narrative internal technical operations for 350+ volunteers, including 38 people serving in internal roles, through Google Workspace, access, internal systems, repositories, and deployment workflows",
+      "Lead Arch Narrative internal technical operations for 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026), through Google Workspace, access, internal systems, repositories, and deployment workflows",
       "Bring the same iterative approach to a Proxmox home lab, 3D printing, regional badminton experience, long-form reading, and photography",
     ],
   },
   archtech: {
     title: "Arch Narrative Operations.project",
     type: "Nonprofit technology operations · Active",
-    intro: "As Head of Internal Technical Operations for Arch Narrative, I build and manage systems for an organization of 350+ volunteers, including 38 people serving in internal roles. My responsibility spans Google Workspace, access, internal tools, repositories, deployment workflows, and operational continuity.",
+    intro: "As Head of Internal Technical Operations for Arch Narrative, I build and manage systems for an organization of 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026). My responsibility spans Google Workspace, access, internal tools, repositories, deployment workflows, and operational continuity.",
     bullets: [
-      "Support an organization of 350+ volunteers, including 38 people serving in internal roles, through shared internal systems",
+      "Support an organization of 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026), through shared internal systems",
       "Administer the nonprofit's Google Workspace environment, account access, and permissions",
       "Coordinate internal tools, repositories, hosting, and deployment workflows",
       "Support implementation while keeping infrastructure, access, and delivery as my primary focus",
@@ -306,7 +306,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Groups assignments, quizzes, discussions, events, planner notes, and other dated work by course, type, or due-date range",
       "Adds moved-deadline detection, local reminders, course shortcuts, offline cache, and light, dark, or system appearance",
       "Keeps coursework in local Chrome storage; optional anonymous numerical totals are off by default and never include course or assignment details",
-      "Published version 1.5.0 on the Chrome Web Store; the opt-in public dashboard has recorded 700+ Canvas items organized across 12 reporting installations",
+      "Published on the Chrome Web Store and Firefox Add-ons; the opt-in public dashboard has recorded 1,351 Canvas items organized across 15 consenting reporting installations (verified Nov. 4, 2026)",
     ],
     body: projectJournalBodies.otnow,
     links: [
@@ -390,7 +390,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Python · Built a SHA-256 file integrity monitor with deterministic baselines, JSON reports, five evidence categories, script-friendly exit codes, and a loopback Integrity Desk that detected 45 of 45 controlled changes across 500 fixtures with zero scan errors",
       "JavaScript and DOM · Built an event-planning tool that adds, edits, displays, and removes events while keeping the page state synchronized",
       "TypeScript and React · Built AFFAN_OS, the portfolio interface, reusable components, window state, keyboard interactions, and accessible controls",
-      "Browser extensions · Built OTNow as a local-first Manifest V3 Canvas companion with allowlisted reads, deadline reconciliation, reminders, offline cache, Chrome Web Store distribution, and 700+ items organized across 12 opt-in reporting installations",
+      "Browser extensions · Built OTNow as a local-first Manifest V3 Canvas companion with allowlisted reads, deadline reconciliation, reminders, offline cache, Chrome and Firefox store distribution, and 1,351 items organized across 15 consenting reporting installations (verified Nov. 4, 2026)",
       "Three.js · Built the interactive cyber lab, procedural room models, material systems, raycast selection, camera transitions, printer animation, and separate touch controls",
       "Next.js and CSS · Built responsive routes, project case studies, mobile layouts, metadata, custom illustrations, and the desktop-style file environment",
       "Cloudflare Pages · Built and repeatedly deployed this portfolio, then verified live deployments and public routes",
@@ -436,7 +436,7 @@ const baseDocuments: Record<StaticDocumentId, DocumentContent> = {
       "Co-Founder and Website Developer · SSIK IT Consulting & Solutions · May 2026 to present",
       "Co-founded SSIK with Ontario Tech classmate Ghayas Sher; share consulting, security assessment, privacy research, and stakeholder responsibilities; independently built the public website and private SSIK Intelligence V1 platform",
       "Head of Internal Technical Operations · Arch Narrative · January 2026 to present",
-      "Build and manage internal systems for 350+ volunteers, including 38 people serving in internal roles; administer Google Workspace, access, tools, repositories, and deployment workflows",
+      "Build and manage internal systems for 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026); administer Google Workspace, access, tools, repositories, and deployment workflows",
       "Sales Associate · Oshawa, Ontario · May 2025 to present",
       "Assist customers, answer product questions, and create a positive shopping experience",
       "Process cash and card transactions accurately while supporting efficient checkout operations",
@@ -667,7 +667,7 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
         ...documents.otnow,
         bullets: documents.otnow.bullets?.map((bullet) =>
           bullet.includes("opt-in public dashboard has recorded")
-            ? `Published version 1.5.0 on the Chrome Web Store; the live opt-in dashboard currently reports ${outcome}`
+            ? `Published on the Chrome Web Store and Firefox Add-ons; the live opt-in dashboard currently reports ${outcome}`
             : bullet
         ),
       },
@@ -675,7 +675,7 @@ export default function DesktopOs({ onExit }: { onExit: () => void }) {
         ...documents.skills,
         bullets: documents.skills.bullets?.map((bullet) =>
           bullet.startsWith("Browser extensions ·")
-            ? `Browser extensions · Built OTNow as a local-first Manifest V3 Canvas companion with allowlisted reads, deadline reconciliation, reminders, offline cache, Chrome Web Store distribution, and a live public aggregate of ${outcome}`
+            ? `Browser extensions · Built OTNow as a local-first Manifest V3 Canvas companion with allowlisted reads, deadline reconciliation, reminders, offline cache, Chrome and Firefox store distribution, and a live public aggregate of ${outcome}`
             : bullet
         ),
       },

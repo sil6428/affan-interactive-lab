@@ -24,7 +24,7 @@ const timeline = [
     role: "Head of Internal Technical Operations",
     place: "Arch Narrative · Oshawa, ON",
     date: "01/2026 — Present",
-    detail: "Build and manage internal systems for an organization of 350+ volunteers, including 38 people serving in internal roles. Administer Google Workspace, access, internal tools, repositories, and deployment workflows.",
+    detail: "Build and manage internal systems for an organization of 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026). Administer Google Workspace, access, internal tools, repositories, and deployment workflows.",
   },
   {
     role: "Sales Associate",
@@ -81,7 +81,7 @@ export default function Info() {
             </p>
             <p>
               I co-founded SSIK with my Ontario Tech classmate Ghayas Sher. We share its consulting, security, privacy,
-              and stakeholder responsibilities, while I independently built its public website and private SSIK Intelligence V1 platform. I also lead internal technical operations for Arch Narrative, an organization of 350+ volunteers with 38 people serving in internal roles, while preparing for CompTIA Security+ and expanding a Proxmox home lab.
+              and stakeholder responsibilities, while I independently built its public website and private SSIK Intelligence V1 platform. I also lead internal technical operations for Arch Narrative, an organization of 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026), while preparing for CompTIA Security+ and expanding a Proxmox home lab.
             </p>
             <p>
               I am looking for co-op work where I can contribute to real infrastructure and learn from experienced operators. Network operations, security operations, systems administration, infrastructure security, and security-focused development all fit the direction of the work collected here.

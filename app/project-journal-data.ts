@@ -1,7 +1,7 @@
 export const projectJournalBodies = {
   archtech: `## Why the operational foundation comes first
 
-Arch Narrative is a developing nonprofit with 350+ volunteers, including 38 people serving in internal roles, so the technical problem is larger than producing a website that looks finished on one computer. The organization needs durable ownership of its accounts, a release path that another authorized person can understand, and a recovery route that does not depend on one contributor remembering an undocumented password.
+Arch Narrative is a developing nonprofit with 280 volunteers and 116 students across 66 active mentor-student pairs (organizational snapshot verified October 31, 2026), so the technical problem is larger than producing a website that looks finished on one computer. The organization needs durable ownership of its accounts, a release path that another authorized person can understand, and a recovery route that does not depend on one contributor remembering an undocumented password.
 
 As Head of Internal Technical Operations, I build and manage the internal systems, Google Workspace, access, repositories, and deployment workflows used across the organization. My central responsibility is continuity across people, accounts, source code, hosting, and the eventual public release.
 
@@ -133,7 +133,7 @@ OTNow uses the student's existing authenticated Canvas session. A tightly scoped
 
 ## Privacy and permission decisions
 
-The extension does not request a Canvas password and does not send course names, assignment names, links, grades, or other coursework to a separate OTNow server. Planner data and preferences remain in Chrome's local storage. Optional anonymous statistics are off by default and require explicit consent; when enabled, they share only broad numerical totals rather than coursework or identity data. There is no advertising identifier, tracking pixel, or OTNow user account.
+The extension does not request a Canvas password and does not send course names, assignment names, links, grades, or other coursework to a separate OTNow server. Planner data and preferences remain in the local browser profile. Optional anonymous statistics are off by default and require explicit consent; when enabled, they share only broad numerical totals rather than coursework or identity data. There is no advertising identifier, tracking pixel, or OTNow user account.
 
 Permissions are limited to what the side panel and Ontario Tech Canvas bridge need. The repository documents why each permission exists so Chrome Web Store disclosures and the implementation can be compared directly.
 
@@ -143,15 +143,15 @@ The last successful local snapshot remains available when Canvas is temporarily 
 
 ## Installation and updates
 
-The Chrome Web Store is now the recommended installation path because it provides automatic updates and avoids developer-mode setup. The GitHub release remains available for transparent manual installation. Its package is prepared so the extension root is the folder a user selects in Chrome, avoiding the common nested-folder error produced by downloading and unzipping the repository source. A separate guide explains setup, updates, troubleshooting, and removal in non-technical language.
+Chrome Web Store and Firefox Add-ons are the recommended installation paths because they provide browser-managed updates and avoid developer-mode setup. The GitHub release remains available for transparent manual installation. Its package is prepared so the extension root is the folder a user selects in Chrome, avoiding the common nested-folder error produced by downloading and unzipping the repository source. A separate guide explains setup, updates, troubleshooting, and removal in non-technical language.
 
-The extension can compare its installed version with the public repository release information and explain the update steps. It does not silently replace itself outside Chrome's normal extension mechanisms.
+The extension can compare its installed version with the public repository release information and explain the update steps. Store-installed builds use browser-managed updates; the manual package explains update steps without silently replacing itself.
 
 ## Verification and limits
 
 Automated coverage and release-package checks validate the core normalization, grouping, settings, privacy controls, and packaging behavior. I also tested installation, the authenticated Ontario Tech session bridge, first synchronization, and side-panel rendering against the live Canvas environment.
 
-Version 1.5.0 is published on the Chrome Web Store. The opt-in public dashboard has recorded 700+ Canvas items organized across 12 reporting installations as of October 11, 2026. Those numbers describe voluntary reporting activity, not total users or proof of learning outcomes. The project does not claim university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
+Released versions verified November 4, 2026 are Chrome 1.6.1 and Firefox 1.6.0. Version 1.7 remains under development. The opt-in public dashboard recorded 1,351 Canvas items organized across 15 consenting reporting installations on November 4, 2026. Those numbers describe voluntary reporting activity, not total users or proof of learning outcomes. The project does not claim university endorsement, support for every Canvas institution, or access when the user's Ontario Tech session has expired.
 
 ## Lessons and roadmap
 
@@ -190,6 +190,8 @@ The service also rejects malformed framing, unauthorized recipients, traversal a
 
 ## Measurements
 
+A controlled benchmark recorded on October 6, 2026 completed 1,000 verified uploads and 1,000 verified downloads across 1,000 unique files using 16 concurrent workers, with SHA-256 verification for every transfer.
+
 I verified eight upload/download round trips totaling 13,632,512 bytes and resumed a 2,097,152-byte upload after interruption at 700,000 bytes. Sixteen automated tests cover authentication, throttling, recipient isolation, traversal attempts, interruption, tampering, quarantine, dashboard setup, and password-safe audit logging.
 
 These measurements prove specific controlled paths. They do not prove internet-scale throughput, resistance to every denial-of-service strategy, independent cryptographic review, or safe exposure of the current local interface to an untrusted network.
@@ -218,7 +220,9 @@ Conversations are organized by contact and retain status information needed to e
 
 The design also considers duplicate messages, reordered delivery, restarts, changed contact keys, malformed envelopes, and acknowledgements that do not correspond to an accepted message. The goal is for failure to remain visible rather than silently appearing as success.
 
-## Adversarial tests
+## Adversarial verification
+
+A controlled loopback benchmark recorded on October 10, 2026 accepted 5,000 authenticated messages, verified 5,000 encrypted acknowledgements and rejected 5,000 replay attempts using 32 workers. This validates controlled protocol paths, not internet-scale performance or production security.
 
 The current public repository includes 75 automated tests covering browser authentication, CSRF protection, conversation controls, identity handling, authenticated encryption, signatures, malformed input, tampering, spoofing, replay rejection, acknowledgements, persistence, attachment references, and end-to-end delivery.
 

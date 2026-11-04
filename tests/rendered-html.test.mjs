@@ -64,8 +64,8 @@ test("renders the current nonprofit operations case study", async () => {
   const archtech = await archtechResponse.text();
   assert.match(archtech, /Arch Narrative/);
   assert.match(archtech, /Head of Internal Technical Operations/);
-  assert.match(archtech, /350\+/);
-  assert.match(archtech, /38 people/);
+  assert.match(archtech, /280/);
+  assert.match(archtech, /116 students/);
   assert.match(archtech, /Google Workspace/);
   assert.match(archtech, /deployment workflows/);
   assert.match(archtech, /Workspace, access, tools, repositories, deployment/);
@@ -126,8 +126,8 @@ test("renders the measured integrity and OTNow case studies", async () => {
   assert.equal(otnowResponse.status, 200);
   const otnow = await otnowResponse.text();
   assert.match(otnow, /Two read-only Canvas endpoints/);
-  assert.match(otnow, /907 Canvas items organized/i);
-  assert.match(otnow, /Published on the Chrome Web Store/i);
+  assert.match(otnow, /1,351 Canvas items organized/i);
+  assert.match(otnow, /Chrome Web Store.*Firefox Add-ons/i);
   assert.match(otnow, /ekaachncjiajgiikgikhpafcnepompkn/);
   assert.match(otnow, /github\.com\/sil6428\/OTNow/);
 });

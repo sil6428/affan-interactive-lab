@@ -72,7 +72,7 @@ export default function CaseStudy({ data }: { data: CaseStudyData }) {
         </header>
 
         <nav className="case-toc" aria-label="On this page">
-          <span>Project journal · updated September 30, 2026</span>
+          <span>Project journal</span>
           <div>
             {data.sections.map((section) => (
               <a href={`#${sectionId(section.title)}`} key={section.title}>{section.title}</a>
